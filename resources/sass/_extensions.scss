@@ -1,0 +1,78 @@
+$field-container-padding: 5px;
+$label-padding: $field-container-padding !default;
+
+.field-container{
+    position: relative;
+    border: 1px solid #bcbaba;
+    height: $input-height;
+    border-radius: $input-radius;
+    padding-left: 12px;
+
+    &:focus-within {
+        border: 1px solid #b1b6bd;
+
+        .show-password-btn{
+            display: block;
+
+            #eyes-open{
+                display: none;
+            }
+        }
+    }
+}
+
+.field-placeholder{
+    position: absolute;
+    top: 50%;
+    transform: translate(#{$label-padding}, -50%);
+    pointer-events: none;
+    transition: all .14s ease-in-out;
+    font-size: $font-size-base;
+    color: $white;
+    background-color: transparent;
+}
+
+input[type="email"].form-control,
+input[type="password"].form-control{
+    color: $white;
+    padding: $label-padding;
+    font-size: $font-size-base;
+    display: block;
+    box-shadow: none;
+    border: none;
+    outline: none;
+
+    &.c-fix, &:focus, &:not(:placeholder-shown){
+        border-color: transparent; 
+    
+        ~ label {
+            font-size: $font-12;
+            top: calc(-5% - .4rem);
+            left: 5px;
+            transform: translate(#{$label-padding}, 0%);
+            text-shadow: 0px 0px 15px rgb(0 0 0 / 20%);
+        }
+    }
+  
+    &::-webkit-input-placeholder {
+        color: transparent;
+    }
+
+    &::-moz-placeholder {
+        color: transparent;
+    }
+
+    &:-ms-input-placeholder {
+        color: transparent;
+    }
+}
+
+.show-password-btn{
+    display: none;
+    border: none;
+    background-color: transparent;
+    color: $white;
+    position: absolute;
+    right: 15px;
+    top: 12px;
+}

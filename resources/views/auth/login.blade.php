@@ -4,7 +4,7 @@
 
 @section('auth')
 <div class="row justify-content-center align-items-center vh-100">
-    <div class="col-md-4">
+    <div class="col-md-5">
         <form class="auth-card" 
             method="POST" 
             action="{{ route('login') }}" 
@@ -12,62 +12,69 @@
 
             @csrf
 
-            <div class="card p-2">
-                <div class="card-header border-0 bg-white">
+            <div class="card px-5 py-2">
+                <div class="card-header border-0 mb-3">
+                    <div class="text-center">
+                        <img src="{{ asset('images/logo/logo.png') }}"
+                            width="195"
+                            height="177.23"
+                            alt="logo">
+                    </div>
+
                     @if(session('success'))
                     <div class="alert alert-success" role="alert">{{ session('success') }}</div>
                     @endif
-
-                    <div class="h3">Login</div>
-                    <div class="h6 font-weight-normal">Welcome back, enter your credentials to start.</div>
                 </div>
 
                 <div class="card-body pt-0">
                     <div class="form-group row flex-column inputs">
-                        <label for="username" 
-                        class="col">Username</label>
-
                         <div class="col">
-                            <input id="username" 
-                                type="username" 
-                                class="form-control @error('username') is-invalid @enderror"
-                                name="username"
-                                value="{{ old('username') }}" 
-                                autofocus
-                                autocomplete="off">
+                            <div class="field-container">
+                                <input class="form-control" 
+                                    id="email" 
+                                    name="email" 
+                                    type="email"
+                                    placeholder=" "
+                                    autocomplete="off">
+                                <label class="field-placeholder" 
+                                    for="email">Email</label>
+                            </div>
 
-                            <span class="position-absolute icon text-muted">
-                                <i data-feather="user"></i>
-                            </span>
-
-                            @error('username')
-                            <span class="invalid-feedback font-size-sm" role="alert">{{ $message }}</span>
+                            @error('email')
+                            <span class="invalid-feedback font-12 text-white d-block" role="alert">{{ $message }}</span>
                             @enderror
 
-                            <span class="text-danger font-size-sm" id="invalid-username"></span>
+                            <span class="font-12 text-white" id="invalid-password"></span>
                         </div>
                     </div>
 
                     <div class="form-group row flex-column inputs">
-                        <label for="password" 
-                        class="col">Password</label>
-
                         <div class="col">
-                            <input id="password" 
-                                type="password" 
-                                class="form-control @error('password') is-invalid @enderror" 
-                                name="password"  
-                                autocomplete="off">
-
-                            <span class="position-absolute icon text-muted">
-                                <i data-feather="lock"></i>
-                            </span>
+                            <div class="field-container">
+                                <input class="form-control" 
+                                    id="password" 
+                                    name="password" 
+                                    type="password"
+                                    placeholder=" "
+                                    autocomplete="off">
+                                <label class="field-placeholder" 
+                                    for="password">Password</label>
+                                
+                                <button type="button" class="show-password-btn">
+                                    <span id="eyes-open">
+                                        <em data-feather="eye"></em>
+                                    </span>
+                                    <span id="eyes-close">
+                                        <em data-feather="eye-off"></em>
+                                    </span>
+                                </button>
+                            </div>
 
                             @error('password')
-                            <span class="invalid-feedback font-size-sm" role="alert">{{ $message }}</span>
+                            <span class="font-12 text-white" role="alert">{{ $message }}</span>
                             @enderror
 
-                            <span class="text-danger font-size-sm" id="invalid-password"></span>
+                            <span class="font-12 text-white" id="invalid-password"></span>
                         </div>
                     </div>
 
@@ -75,19 +82,27 @@
                         <div class="col">
                             <div class="custom-control custom-checkbox">
                                 <input type="checkbox" class="custom-control-input" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }} style="cursor: pointer;">
-                                <label class="custom-control-label font-size-sm" for="remember">{{ __('Remember Me') }}</label>
+                                <label class="custom-control-label text-light font-12" for="remember">
+                                    <span class="re-align-text">{{ __('Remember Me') }}</span>
+                                </label>
                             </div>
                         </div>
                         <div class="col text-right">
                             @if (Route::has('password.request'))
-                            <a href="{{ route('password.request') }}" class="font-size-sm">{{ __('Forgot Password?') }}</a>
+                            <a href="{{ route('password.request') }}" class="text-light font-12">{{ __('Forgot Password?') }}</a>
                             @endif
                         </div>
                     </div>
 
                     <div class="form-group row">
                         <div class="col">
-                            <button type="button" id="btn-login" class="btn btn-primary font-weight-normal w-100">{{ __('Login') }}</button>
+                            <button type="button" 
+                                id="btn-login" 
+                                class="btn btn-success font-weight-500 w-100 border">{{ __('Log in') }}</button>
+
+                            <div class="text-center mt-3">
+                                <p class="text-light">Don't have an account yet? register <a href="{{ route('register') }}" class="click-here">here</a></p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -104,24 +119,24 @@
 @section('scripts')
 <script type="text/javascript">
 $(document).ready(function() {
+    $('.show-password-btn').on('click', function(){
+        $('#password').attr('type', 'text');
+    });
+
     function validateFields(){
         $('.invalid-feedback').html('');
 
         if($('#username').val() == ""){
             $('#username').focus();
-            $('#username').addClass('is-invalid');
             $('#invalid-username').html('The username field is required.');
         }else{
             $('#invalid-username').html('');
-            $('#username').removeClass('is-invalid');
         }
         
         if($('#password').val() == ""){
-            $('#password').addClass('is-invalid');
             $('#invalid-password').html('The password field is required.');
         }else{
             $('#invalid-password').html('');
-            $('#password').removeClass('is-invalid');
         }
 
         if($('#password').val() != "" && $('#username').val() != ""){

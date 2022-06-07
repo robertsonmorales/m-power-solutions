@@ -9,14 +9,19 @@
     
     <title>@yield('title') - {{ config('app.name', 'LaraPort') }}</title>
     
-    <link rel="shortcut icon" type="image/png" href="{{ asset('images/logo/logo.svg') }}">
+    <link rel="shortcut icon" type="image/png" href="{{ asset('images/logo/logo.png') }}">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet"> 
 
     @yield('vendors-style')
 
+    <style>
+        #auth{
+            background-image: url("{{asset('images/bg-1.png')}}");
+        }
+    </style>
 </head>
 <body>
-    <div class="container-fluid" id="auth">
+    <div id="auth">
         @yield('auth')
     </div>
 

@@ -1,28 +1,64 @@
-.auth-card{
+#auth{
     overflow: hidden;
+    // background-color: $body-bg;
+    // background-image: $auth-bg;
+    background-attachment: fixed;
+    background-size: 100%;
+}
 
+.auth-card{
     .card{
-        @extend .glassmorphism;
+        background: rgba(47, 47, 47, 0.2);
+        backdrop-filter: $blur;
+        border-radius: $auth-radius;
+        border: 2.45px linear rgba(153, 153, 153, 0.6)
+        rgba(32, 32, 32, 0.11);
 
         .inputs > label{
-            color: $dark;
+            color: $light;
             font-size: .9em !important;
             margin-bottom: 2px;
         }
     
-        .form-control{
-            padding-left: 35px !important;
+        .form-control{        
             border-radius: $radius !important;
+            background-color: transparent;
 
             &:focus{
-                font-weight: 500;
+                box-shadow: none;
             }
         }
-        
-        .icon{
-            top: 6px !important;
-            left: 25px !important;
-            color: $default;
+
+        .custom-control-label{
+            &::before{
+                background-color: transparent;
+            }
+        }
+
+        a.text-light{
+            text-decoration: underline;
+        }
+
+        a.click-here{
+            color: #6f7ae0;
+            text-decoration: underline;
+        }
+
+        button#btn-login{
+            height: $auth-height;
+        }
+
+        .font-12{
+            font-size: $font-12;
+        }
+
+        .font-13{
+            font-size: $font-13;
+        }
+
+        .re-align-text{
+            position: relative;
+            top: 4px;
         }
     }
 }

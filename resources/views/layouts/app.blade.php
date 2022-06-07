@@ -8,7 +8,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>@yield('title') - {{ config('app.name', 'LaraPort') }}</title>
-    <link rel="shortcut icon" type="image/png" href="{{ asset('images/logo/logo.svg') }}">
+    <link rel="shortcut icon" type="image/png" href="{{ asset('images/logo/logo.png') }}">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
     @yield('vendors-style')
