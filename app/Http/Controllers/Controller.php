@@ -202,8 +202,8 @@ class Controller extends BaseController
     // Preset page size
     public function pageSize(){
         return array(
-            'default' => 25,
-            'options' => [25, 50, 75, 100, 250, 500]
+            'default' => 10,
+            'options' => [10, 25, 50, 75, 100, 250, 500]
         );
     }
 

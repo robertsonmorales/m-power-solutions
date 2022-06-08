@@ -18,6 +18,6 @@ use Illuminate\Support\Facades\Route;
 //     return $request->user();
 // });
 
-Route::middleware('cors')->group(function(){
-	Route::get('dashboard', [App\Http\Controllers\APIs\ApiController::class, 'dashboard']);
-});
+Route::get('dashboard', [App\Http\Controllers\APIs\ApiController::class, 'dashboard']);
+
+Route::apiResource('students', App\Http\Controllers\APIs\StudentController::class);

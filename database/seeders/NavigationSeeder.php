@@ -27,7 +27,7 @@ class NavigationSeeder extends Seeder
                 'main' => array('Book', 'books', 'Dashboard', 'book', 'single')
             ),
             array(
-                'main' => array('Teacher', 'teachers', 'Dashboard', 'teacher', 'single')
+                'main' => array('Students', 'students', 'Student', 'student', 'single')
             ),
             array(
                 'main' => array('Calendar', 'calendar', 'Dashboard', 'calendar', 'single')

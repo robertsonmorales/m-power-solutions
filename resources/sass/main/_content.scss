@@ -1,11 +1,28 @@
+.header-content{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+
+    h3{
+        font-size: 20px;
+    }
+
+    button{
+        font-size: 14.63px;
+    }
+}
+
 .content{
-    @extend .glassmorphism;
+    background-color: $white;
+    border-radius: 12px;
+    padding: 16px;
 
     .filters-section{
         display: flex;
         justify-content: space-between;
         align-items: start;
-        border-bottom: $border;
+        margin-bottom: 16px;
     
         .filters-child{
             display: flex;
@@ -18,11 +35,14 @@
     
             .form-control{
                 padding-left: 35px !important;
-                border-radius: $radius;
+                border-radius: $card-radius;
+                height: 36px;
+                width: 250px;
             }
 
             .custom-select{
-                border-radius: $radius;
+                border-radius: $card-radius;
+                height: 36px;
             }
     
             .icon{
@@ -37,26 +57,73 @@
         overflow: hidden;
         width: 100%;
         height: 100vh;
+        border-radius: 16px;
+        border: 1px solid #E0E7ED;
+    }
+
+    .btn-action{
+        border: none;
+        outline: none;
+        background-color: transparent;
+        width: 24px;
+        height: 24px;
+        margin-right: 22px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        &:child{
+            margin-right: 0;
+        }
+    }
+
+    .btn-group{
+        position: static;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+
+        .dropdown-menu{
+            min-width: 107px;
+            width: 107px;
+            height: 134px;
+            border: 1px solid rgba(0, 0, 0, 0.2);
+            background: $white;
+            text-align: center;
+
+            div{
+                height: 27px;
+                margin-bottom: 11px;
+            }
+
+            a, button{
+                width: 74px;
+                padding: 0px !important;
+                color: $white;
+            }
+
+            .btn-view{
+                background-color: #009933;
+            }
+
+            .btn-edit{
+                background-color: $primary;
+            }
+
+            .btn-delete{
+                background-color: $danger;
+                
+            }
+        }
+
+        .dropdown-item{
+            padding: 3px;
+            width: 74px !important;
+            // height: 27px;
+        }
     }
 }
-
-// .data-profile{
-//     display: flex;
-//     justify-content: flex-start;
-//     align-items: center;
-
-//     img.profile{
-//         width: 36px;
-//         height: 36px;
-//         border-radius: 50%;
-//         border: 2px solid $light;
-//     }
-
-//     .name{
-//         display: flex;
-//         flex-direction: column;
-//     }
-// }
 
 .btn-controls{
     width: 38px;

@@ -16,7 +16,7 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-        User::factory()->count(20)->create();
+        // User::factory()->count(20)->create();
 
         User::create([
             'first_name' => 'robert',
@@ -27,6 +27,18 @@ class UserSeeder extends Seeder
             'password' => '7ujm&UJM',
             'user_level_id' => '1',
             'address' => 'Northern Samar',
+            'account_status' => 1
+        ]);
+        
+        User::create([
+            'first_name' => 'test',
+            'last_name' => 'test',
+            'username' => 'user',
+            'contact_number' => '+639123456789',
+            'email' => 'test@gmail.com',
+            'password' => '7ujm&UJM',
+            'user_level_id' => '1',
+            'address' => 'Philippines',
             'account_status' => 1
         ]);
     }

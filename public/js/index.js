@@ -14,7 +14,7 @@ var gridOptions = {
     groupSelectsChildren: true,
     suppressRowTransform: true,
     enableCellTextSelection: true,
-    rowHeight: 55,
+    rowHeight: 68,
     animateRows: true,
     pagination: true,
     paginationPageSize: 25,
@@ -45,14 +45,6 @@ $('#import_file').on('change', function(){
 
 $('#btn-import').on('click', function(){
     $('#import-form-submit').attr('style', 'display: flex;');
-
-    // if($('#import_file')[0].files.length == 0){
-    //     $('#btn-import-submit').prop('disabled', true);
-    //     $('#btn-import-submit').css('cursor', 'not-allowed');
-    // }else{
-    //     $('#btn-import-submit').prop('disabled', false);
-    //     $('#btn-import-submit').css('cursor', 'pointer');
-    // }
 });
 
 $('#btn-import-cancel').on('click', function(){
@@ -69,59 +61,64 @@ $(".btn-dismiss").on('click', function(){
 
 // ENDS HERE
 
-function initAgGrid(data, icons='', showControls=false, url=''){
+function initAgGrid(data, showControls){
     const aggrid = document.querySelector('#myGrid');
-    var width = 150;
-    var minWidth = 140;
+
+    console.log(data);
 
     if(showControls === true){
+
         var columnDefs = {
-            headerName: 'Controls',
-            field: 'controls',
+            headerName: 'Action',
+            field: 'action',
             sortable: false,
             filter: false,
             editable: false,
             flex: 1,
             maxWidth: 250,
             minWidth: 230,
-            pinned: 'left',
             cellRenderer: function(params){
-                var editURL = url.replace(':id', params.data.id);
+                // var editURL = url.replace(':id', params.data.id);
                 var el = document.createElement('div');
                 el.className = "d-flex align-items-center";
 
-                el.innerHTML +='<button id="'+params.data.id+'" title="Edit" class="btn btn-edit ml-1">'+ icons['edit'] + ' <span class="ml-1" style="font-size:13px;">Edit</span></button>&nbsp;&nbsp;';
+                var dr = '<svg width="10" height="7" viewBox="0 0 10 7" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M5.00001 6.50001C4.74401 6.50001 4.48801 6.40201 4.29301 6.20701L0.293006 2.20701C-0.0979941 1.81601 -0.0979941 1.18401 0.293006 0.793006C0.684006 0.402006 1.31601 0.402006 1.70701 0.793006L5.01201 4.09801L8.30501 0.918006C8.70401 0.535006 9.33501 0.546006 9.71901 0.943006C10.103 1.34001 10.092 1.97401 9.69501 2.35701L5.69501 6.21901C5.50001 6.40701 5.25001 6.50001 5.00001 6.50001Z" fill="#828282"/></svg>';
+                var vert = '<svg width="4" height="18" viewBox="0 0 4 18" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 2C4 3.104 3.104 4 2 4C0.896 4 0 3.104 0 2C0 0.896 0.896 0 2 0C3.104 0 4 0.896 4 2Z" fill="#828282"/><path d="M2 7C0.896 7 0 7.896 0 9C0 10.104 0.896 11 2 11C3.104 11 4 10.104 4 9C4 7.896 3.104 7 2 7Z" fill="#828282"/><path d="M2 14C0.896 14 0 14.896 0 16C0 17.104 0.896 18 2 18C3.104 18 4 17.104 4 16C4 14.896 3.104 14 2 14Z" fill="#828282"/></svg>';
 
-                // Button Control Add-Ons
-                // switch (window.location.pathname) {
-                //     case '/user_accounts':
-                //         el.innerHTML +='<button id="'+params.data.id+'" title="Email" class="btn btn-controls btn-success btn-email">'+ icons['email_icon'] +'</button>&nbsp;&nbsp;';
-                //         el.innerHTML +='<button id="'+params.data.id+'" title="Lock User" class="btn btn-controls btn-warning btn-lock text-white">'+ icons['lock_icon'] +'</button>&nbsp;&nbsp;';
-                //         break;
-                //     default:
-                //         break;
-                // }
-                // Ends here
+                el.innerHTML += '<button class="btn-action '+el.className+'">'+vert+'</button>'
+                el.innerHTML += '<div class="btn-group">\
+                    <button class="btn-dropdown btn-action btn-show-options"\
+                        data-toggle="dropdown">'+dr+'</button>\
+                    <div class="up-arrow"></div>\
+                    <div class="dropdown-menu dropdown-menu-right">\
+                        <div><a href="#view" class="btn btn-view">View</a></div>\
+                        <div><button class="btn btn-edit">Edit</button></div>\
+                        <div><button class="btn btn-delete">Delete</button></div>\
+                    </div>\
+                </div>';
+                
+                var showOptions = el.querySelectorAll('.btn-show-options')[0];
 
-                el.innerHTML +='<button id="'+params.data.id+'" title="Remove" class="btn btn-remove mr-1">'+ icons['remove'] +' <span class="ml-1" style="font-size:13px;">Remove</span></button>';
-
-                var btnEdit = el.querySelectorAll('.btn-edit')[0];
-                var btnRemove = el.querySelectorAll('.btn-remove')[0];
-
-                btnEdit.addEventListener('click', function() {
-                    window.location.href = editURL;
+                showOptions.addEventListener('click', function() {
+                    // el.querySelector('.dropdown-menu').className = 'flex';
                 });
 
-                btnRemove.addEventListener('click', function() {
-                    $('#form-submit').attr('style', 'display: flex;');
-                    $('.modal-content').attr('id', params.data.id);
-                });
+                // btnRemove.addEventListener('click', function() {
+                //     $('#form-submit').attr('style', 'display: flex;');
+                //     $('.modal-content').attr('id', params.data.id);
+                // });
                 
                 return el;
             }
         };
 
         data.column.push(columnDefs);
+    }
+
+    for(data.column in cols){
+        if(cols.field.status){
+            console.log(cols);
+        }
     }
 
     gridOptions.columnDefs = data.column;
@@ -165,4 +162,9 @@ function pageSize(value){
 $('#btn-export').on('click', function(){
     gridOptions.api.exportDataAsCsv();
 });
+
 // ENDS HERE
+
+$('.btn-show-options').on('click', function(){
+    alert('it works');
+});
