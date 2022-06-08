@@ -1,3 +1,5 @@
+var token = $('meta[name=csrf]').attr('content');
+
 var defaultColDef = {
     sortingOrder: ['desc', 'asc', null],
     resizable: true,
@@ -30,27 +32,6 @@ var gridOptions = {
     }
 };
 
-// IMPORT
-$('#import_file').on('change', function(){
-    var btnSubmit = $('#btn-import-submit');
-
-    if($(this)[0].files.length == 0){
-        btnSubmit.prop('disabled', true);
-        btnSubmit.css('cursor', 'not-allowed');
-    }else{
-        btnSubmit.prop('disabled', false);
-        btnSubmit.css('cursor', 'pointer');
-    }
-});
-
-$('#btn-import').on('click', function(){
-    $('#import-form-submit').attr('style', 'display: flex;');
-});
-
-$('#btn-import-cancel').on('click', function(){
-    $('#import-form-submit').hide();
-});
-
 $("#btn-cancel").on('click', function(){
     $('.modal').hide();
 });
@@ -63,8 +44,6 @@ $(".btn-dismiss").on('click', function(){
 
 function initAgGrid(data, showControls){
     const aggrid = document.querySelector('#myGrid');
-
-    console.log(data);
 
     if(showControls === true){
 
@@ -97,28 +76,59 @@ function initAgGrid(data, showControls){
                     </div>\
                 </div>';
                 
-                var showOptions = el.querySelectorAll('.btn-show-options')[0];
+                var editStudent = el.querySelectorAll('.btn-edit')[0];
 
-                showOptions.addEventListener('click', function() {
-                    // el.querySelector('.dropdown-menu').className = 'flex';
+                editStudent.addEventListener('click', function() {
+                    $.ajax({
+                        url: "/api/students/show",
+                        data: {
+                            _token: token,
+                            id: params.data.id
+                        },
+                        type: 'GET',
+                        dataType: 'json',
+                        success: (response) => {
+                            var student = response;
+
+                            $('#form-submit').attr('style', 'display: flex');
+                            $('#student_id').val(student.id);
+                            $('#full_name').val(student.full_name);
+                            $('#email').val(student.email);
+                            $('#contact').val(student.contact);
+                            $('#region').val(student.region);
+                            $('#course_id').val(student.course_id);
+                            $('#section').val(student.section);
+                        }
+                    });
                 });
 
-                // btnRemove.addEventListener('click', function() {
-                //     $('#form-submit').attr('style', 'display: flex;');
-                //     $('.modal-content').attr('id', params.data.id);
-                // });
+                var deleteStudent = el.querySelectorAll('.btn-delete')[0];
+                deleteStudent.addEventListener('click', function() {
+                    $.ajax({
+                        url: "/api/students/delete",
+                        data: {
+                            _token: token,
+                            id: params.data.id
+                        },
+                        type: 'DELETE',
+                        dataType: 'json',
+                        success: (response) => {
+                            if(response.is_success){
+                                alert(response.message);
+
+                                window.location.href = '/students';
+                            }else{
+                                alert(response.message);
+                            }
+                        }
+                    });
+                });
                 
                 return el;
             }
         };
 
         data.column.push(columnDefs);
-    }
-
-    for(data.column in cols){
-        if(cols.field.status){
-            console.log(cols);
-        }
     }
 
     gridOptions.columnDefs = data.column;
@@ -161,10 +171,4 @@ function pageSize(value){
 // EXPORT AS CSV
 $('#btn-export').on('click', function(){
     gridOptions.api.exportDataAsCsv();
-});
-
-// ENDS HERE
-
-$('.btn-show-options').on('click', function(){
-    alert('it works');
 });

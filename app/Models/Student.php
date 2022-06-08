@@ -13,7 +13,7 @@ class Student extends Model
 
     protected $table = "students";
 
-    protected $fillables = [
+    protected $fillable = [
         "full_name", "email", "contact", "region", "course_id", "section", "status_id", "created_by", "updated_by"
     ];
 

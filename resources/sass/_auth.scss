@@ -6,6 +6,8 @@
 }
 
 .auth-card{
+    @import 'extensions';
+    
     .card{
         background: rgba(47, 47, 47, 0.2);
         backdrop-filter: $blur;
