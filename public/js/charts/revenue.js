@@ -115,6 +115,10 @@ var options = {
         floating: true,
         offsetY: -40,
         offsetX: -5,
+        fontSize: '16px',
+        fontFamily: fontStack,
+        fontWeight: 400,
+        
     }
 };
 

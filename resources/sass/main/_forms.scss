@@ -178,3 +178,55 @@
         margin-bottom: 30px;
     }
 }
+
+.grid-quarterly-exam{
+    .grid-exams{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+        column-gap: 32px;
+        row-gap: 32px;
+
+        .border{
+            border: 1px solid #F0F0F0;
+        }
+
+        .exam-details{
+            .img-wrapper-warning{
+                background-color: #FFB978;
+            }
+            
+            .img-wrapper-danger{
+                background-color: #F86060;
+            }
+            
+            .img-wrapper-info{
+                background-color: #778DFF;
+            }
+            
+            .img-wrapper-success{
+                background-color: #64E662;
+            }
+
+            .img-wrapper{
+                width: 48px;
+                height: 48px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-radius: $card-radius;
+                margin-bottom: 16px;
+    
+                img{
+                    width: 24px;
+                    height: 23px;
+                    object-fit: fill;
+                }
+            }
+    
+            .rate{
+                margin-bottom: 8px;
+            }
+        }
+    }
+}
