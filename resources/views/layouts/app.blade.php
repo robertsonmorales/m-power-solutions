@@ -12,7 +12,6 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
     @yield('vendors-style')
-
 </head>
 <body>
     <div id="app" class="d-flex">
@@ -21,10 +20,6 @@
         <main class="vh-100 ml-5">
             <x-organisms.header />
 
-            {{-- <x-molecules.breadcrumb 
-                :title="$title"
-                :breadcrumbs="$breadcrumbs" /> --}}
-
             @yield('content')
 
             <br>
@@ -32,11 +27,11 @@
     </div>
 
     @yield('vendors-script')
-
-    <script type="text/javascript" src="{{ asset('js/app.js') }}" defer></script>
-    <script type="text/javascript" src="{{ asset('js/custom.js') }}"></script>
-
+    
     @yield('scripts')
     @yield('script-src')
+
+    <script type="text/javascript" src="{{ asset('js/app.js') }}" defer></script>
+    <script type="text/javascript" src="{{ asset('js/custom.js') }}" defer></script>
 </body>
 </html>

@@ -11110,7 +11110,7 @@ body .circle-icon .feather {
   width: 24px;
   height: 24px;
 }
-body .glassmorphism, body main .account-sidebar, body main .content {
+body .glassmorphism, body main .account-sidebar {
   border: 1px solid rgba(209, 213, 219, 0.3);
   -webkit-backdrop-filter: blur(15px) saturate(148%);
           backdrop-filter: blur(15px) saturate(148%);
@@ -11412,11 +11412,28 @@ body main .header h3 {
   font-weight: 700;
   line-height: 28px;
 }
+body main .header-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+body main .header-content h3 {
+  font-size: 20px;
+}
+body main .header-content button {
+  font-size: 14.63px;
+}
+body main .content {
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 16px;
+}
 body main .content .filters-section {
   display: flex;
   justify-content: space-between;
   align-items: start;
-  border-bottom: 1px solid rgba(209, 213, 219, 0.3);
+  margin-bottom: 16px;
 }
 body main .content .filters-section .filters-child {
   display: flex;
@@ -11428,10 +11445,13 @@ body main .content .filters-section .filters-child label {
 }
 body main .content .filters-section .filters-child .form-control {
   padding-left: 35px !important;
-  border-radius: 12px;
+  border-radius: 8px;
+  height: 36px;
+  width: 250px;
 }
 body main .content .filters-section .filters-child .custom-select {
-  border-radius: 12px;
+  border-radius: 8px;
+  height: 36px;
 }
 body main .content .filters-section .filters-child .icon {
   top: 6px;
@@ -11442,6 +11462,59 @@ body main .content #myGrid {
   overflow: hidden;
   width: 100%;
   height: 100vh;
+  border-radius: 16px;
+  border: 1px solid #E0E7ED;
+}
+body main .content .btn-action {
+  border: none;
+  outline: none;
+  background-color: transparent;
+  width: 24px;
+  height: 24px;
+  margin-right: 22px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+body main .content .btn-action:child {
+  margin-right: 0;
+}
+body main .content .btn-group {
+  position: static;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+body main .content .btn-group .dropdown-menu {
+  min-width: 107px;
+  width: 107px;
+  height: 134px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  background: #fff;
+  text-align: center;
+}
+body main .content .btn-group .dropdown-menu div {
+  height: 27px;
+  margin-bottom: 11px;
+}
+body main .content .btn-group .dropdown-menu a, body main .content .btn-group .dropdown-menu button {
+  width: 74px;
+  padding: 0px !important;
+  color: #fff;
+}
+body main .content .btn-group .dropdown-menu .btn-view {
+  background-color: #009933;
+}
+body main .content .btn-group .dropdown-menu .btn-edit {
+  background-color: #0066CC;
+}
+body main .content .btn-group .dropdown-menu .btn-delete {
+  background-color: #FF333F;
+}
+body main .content .btn-group .dropdown-item {
+  padding: 3px;
+  width: 74px !important;
 }
 body main .btn-controls {
   width: 38px;
@@ -11597,6 +11670,9 @@ body main .user-profile .divider {
   width: 89px;
   height: 1px;
   margin: 1px 0;
+}
+body main .grid-statistic {
+  background: #F7F9FC;
 }
 body main .grid-statistic .title-with-filter {
   margin-bottom: 30px;

@@ -916,7 +916,7 @@ ag-grid, ag-grid-angular, ag-grid-ng2, ag-grid-polymer, ag-grid-aurelia {
 .ag-paging-panel {
   align-items: center;
   display: flex;
-  justify-content: center !important;
+  justify-content: flex-end;
 }
 
 .ag-paging-page-summary-panel {
@@ -929,7 +929,7 @@ ag-grid, ag-grid-angular, ag-grid-ng2, ag-grid-polymer, ag-grid-aurelia {
 
   /* added */
   cursor: pointer;
-  background-color: #ddd;
+  background-color: #F1F7FF;
   width: 32px;
   height: 32px;
   display: flex;

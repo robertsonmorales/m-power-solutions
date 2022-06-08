@@ -71,7 +71,7 @@
         </div>
 
         {{-- Statistic --}}
-        <div class="grid-statistic bg-light border-radius">
+        <div class="grid-statistic border-radius">
             <div class="title-with-filter px-4 pt-4">
                 <h3 class="mb-0">Statistic</h3>
                 <div class="navigator">
