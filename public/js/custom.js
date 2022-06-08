@@ -27,15 +27,15 @@ $(function(){
 	// ? ENDS HERE
 
 	// ? BUTTON MENU
-	$('#btn-menu').on('click', function(){
-		// console.log($(this));
+	// $('#btn-menu').on('click', function(){
+	// 	// console.log($(this));
 
-		if($('#sidebar').width() != 0){
-			hideSidebar();
-		}else {
-			showSidebar();
-		}
-	});
+	// 	if($('#sidebar').width() != 0){
+	// 		hideSidebar();
+	// 	}else {
+	// 		showSidebar();
+	// 	}
+	// });
 
 	$('#btn-close').on('click', function(){
 		hideSidebar();

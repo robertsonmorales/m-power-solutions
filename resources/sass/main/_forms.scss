@@ -174,8 +174,21 @@
 }
 
 .grid-statistic{
-    .px-3{
+    .title-with-filter{
         margin-bottom: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .navigator{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            span{
+                margin: 0 14px;
+            }
+        }
     }
 }
 
@@ -195,15 +208,15 @@
             .img-wrapper-warning{
                 background-color: #FFB978;
             }
-            
+
             .img-wrapper-danger{
                 background-color: #F86060;
             }
-            
+
             .img-wrapper-info{
                 background-color: #778DFF;
             }
-            
+
             .img-wrapper-success{
                 background-color: #64E662;
             }

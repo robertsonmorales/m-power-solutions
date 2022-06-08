@@ -40,7 +40,10 @@
         {{-- User Profile --}}
 
         <div class="d-flex flex-column justify-content-start">
-            <h3>User Profile</h3>
+            <div class="d-flex justify-content-between align-items-start">
+                <h3>User Profile</h3>
+                <span><em data-feather="chevron-right"></em></span>
+            </div>
 
             <div class="user-profile bg-light border-radius px-3">
                 <div class="d-flex align-items-center">
@@ -69,8 +72,13 @@
 
         {{-- Statistic --}}
         <div class="grid-statistic bg-light border-radius">
-            <div class="px-4 pt-4">
+            <div class="title-with-filter px-4 pt-4">
                 <h3 class="mb-0">Statistic</h3>
+                <div class="navigator">
+                    <em data-feather="chevron-left"></em>
+                    <span class="font-14">Aug 2021</span>
+                    <em data-feather="chevron-right"></em>
+                </div>
             </div>
 
             <div class="chart p-3">
