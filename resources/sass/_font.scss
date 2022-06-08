@@ -1,1 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700;900&display=swap');
+
+@font-face {
+    font-family: "Gilroy";
+    src: url("../fonts/gilroy_light_macroman/gilroy-light-webfont.woff");
+    // src: url("../fonts/gilroy_light_macroman/gilroy-light-webfont.woff2");
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: "Gilroy";
+    src: url("../fonts/gilroy_extrabold_macroman/gilroy-extrabold-webfont.woff");
+    // src: url("../fonts/gilroy_light_macroman/gilroy-light-webfont.woff2");
+    font-weight: 700;
+}

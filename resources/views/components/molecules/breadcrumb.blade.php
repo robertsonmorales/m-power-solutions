@@ -1,4 +1,4 @@
-<div class="mx-4 my-3 px-4">
+<div class="mx-4 my-3">
     {{-- @if(count($breadcrumbs['name']) > 1)
     
     @endif --}}

@@ -4,18 +4,20 @@ namespace App\View\Components\Molecules;
 
 use Illuminate\View\Component;
 
-class Accordion extends Component
+class DashboardCard extends Component
 {
-    public $navigations;
-
+    public $text, $class, $textClass, $mode;
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct($navigations)
+    public function __construct($text, $class, $textClass, $mode)
     {
-        $this->navigations = $navigations;
+        $this->text = $text;
+        $this->class = $class;
+        $this->textClass = $textClass;
+        $this->mode = $mode;
     }
 
     /**
@@ -25,6 +27,6 @@ class Accordion extends Component
      */
     public function render()
     {
-        return view('components.molecules.accordion');
+        return view('components.molecules.dashboard-card');
     }
 }

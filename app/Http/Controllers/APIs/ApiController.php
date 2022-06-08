@@ -9,66 +9,20 @@ use Arr;
 
 class ApiController extends Controller
 {
-    public function fetchCategories(){
-        $data = $this->category->selectedFields()->active()->ascendingName()->get();
-
-        $this->apiLog($data);
-
-        $return = empty($data)
-            ? array('message' => 'No records found')
-            : $data;
-
-        return response()->json($return);
-    }
-
-    public function fetchSubcategories(){
-        $data = $this->subcategory->selectedFields()->active()->ascendingName()->get();
-        $data = $this->changeValue($data);
-
-        $this->apiLog($data);
-
-        $return = empty($data)
-            ? array('message' => 'No records found')
-            : $data;
-
-        return response()->json($return);
-    }
-
-    public function fetchTableManagment(){
-        $data = $this->tableManagement->active()->selectedFields()->get();
-
-        $this->apiLog($data);
-
-        $return = empty($data)
-            ? array('message' => 'No records found')
-            : $data;
-
-        return response()->json($return);
-    }
-
-    // accessor
-    public function changeValue($rows){
-        foreach ($rows as $key => $value) {
-            if (Arr::exists($value, 'menu_category_id')) {
-                $category = $this->subcategory->find($value['id'])->menuCategory->name;
-                $value['menu_category_id'] = $category;
-            }
-        }
-
-        return $rows;
-    }
-
     public function dashboard(){
         $months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-        $data = array();
+        $avg = []; // array(0,2, 2.8, 3.4, 3.8, 3.5, 2.8, 2.5, 3, 4.3, 4.5, 4.1, 5);
+        $exams = []; // array(0, 2, 2.2, 2.5, 2.8, 3.4, 3.7, 3.6, 3.2, 2.6, 2.7, 3, 4.4);
 
         for ($i=0; $i < 12; $i++) { 
-            $data[] = mt_rand(10000, 99999);
+            $avg[] = mt_rand(2.0, 5.0);
+            $exams[] = mt_rand(2.0, 5.0);
         }
 
         return array(
             'months' => $months,
-            'data' => $data
+            'avg' => $avg,
+            'exams' => $exams
         );
     }
 }

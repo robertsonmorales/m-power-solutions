@@ -1,13 +1,13 @@
-<div class="sticky-top mx-4 my-3">
-    <nav class="header-nav py-3 px-4">
+<div class="sticky-top">
+    <nav class="header-nav p-3">
         <div class="row no-gutters align-items-center">
-            <button class="btn btn-light btn-menu" 
+            <button class="btn-menu" 
                 type="button" 
                 id="btn-menu" 
                 data-toggle="tooltip" 
                 data-placement="top" 
                 title="Hide sidebar">
-                <em data-feather="menu"></em>
+                <em data-feather="play-circle"></em>
             </button>
         </div>
 

@@ -26,7 +26,7 @@ class HomeController extends Controller
      * @return \Illuminate\Contracts\Support\Renderable
      */
     public function index(){
-        return redirect()->route('tickets.index');
+        return redirect()->route('dashboard.index');
     }
 
     public function session_sidebar(Request $request){

@@ -21,14 +21,20 @@ class NavigationSeeder extends Seeder
     {
         $navs = array(
             array(
-                'main' => array('Maintenance', 'maintenance', '', 'tool', 'main'),
-                'sub' => array(
-                    array('Tickets', 'tickets', 'Maintenance\Ticket', 'circle', 'sub'),
-                    array('Ticket Types', 'ticket_types', 'Maintenance\TicketType', 'circle', 'sub'),
-                    array('Coupon', 'coupons', 'Maintenance\Coupon', 'circle', 'sub'),
-                    array('Coupon Discounts', 'coupon_discounts', 'Maintenance\CouponDiscounts', 'circle', 'sub'),
-                )
-            )
+                'main' => array('Knowledge Base', 'dashboard', 'Dashboard', 'dashboard', 'single')
+            ),
+            array(
+                'main' => array('Book', 'books', 'Dashboard', 'book', 'single')
+            ),
+            array(
+                'main' => array('Teacher', 'teachers', 'Dashboard', 'teacher', 'single')
+            ),
+            array(
+                'main' => array('Calendar', 'calendar', 'Dashboard', 'calendar', 'single')
+            ),
+            array(
+                'main' => array('Message', 'messages', 'Dashboard', 'messages-2', 'single')
+            ),
         );
 
         $this->insertNavigation($navs);
