@@ -5,7 +5,7 @@ namespace App\Http\Controllers\APIs;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-use App\Models\{Student, Status};
+use App\Models\{Student, Status, Course};
 
 use Validator, Auth, Arr;
 
@@ -19,11 +19,15 @@ class StudentController extends Controller
     public function index()
     {
         $selectedFields = [
-            "full_name", "email", "contact", "region", "status_id"
+            "id", "full_name", "email", "contact", "region", "status_id"
         ];
 
-        $rows = Student::get($selectedFields);
+        $rows = Student::latest()->get($selectedFields);
         $rows = $this->changeValue($rows);
+
+        $courses = Course::orderBy('name', 'asc')->get([
+            'id', 'name'
+        ]);
 
         $columnDefs = array(            
             array('headerName'=>'Name', 'field'=>'full_name', 
@@ -37,7 +41,8 @@ class StudentController extends Controller
 
         $data = json_encode(array(
             'rows' => $rows,
-            'column' => $columnDefs
+            'column' => $columnDefs,
+            'courses' => $courses
         ));
         
         return $data;
@@ -51,15 +56,24 @@ class StudentController extends Controller
      */
     public function store(Request $request)
     {
-        $validator = $this->validator($request)->validate();
-        $validator['created_by'] = Auth::id();
+        // return $request->all();
+        $validator = $this->validator($request);
+        $validator['status_id'] = 2;
+        $validator['created_by'] = $this->safeInputs($request->input('id'));
         $validator['created_at'] = now();
 
         $create = Student::create($validator);
+
         if($create){
-            return true;
+            return array(
+                "is_success" => true,
+                "message" => "Student created successfully"
+            );
         }else{
-            return false;
+            return array(
+                "is_success" => false,
+                "message" => "Failed to create a new student"
+            );
         }
     }
 
@@ -69,10 +83,10 @@ class StudentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Request $request)
     {
-        $data = Student::findOrFail($id);
-
+        // return $request->all();
+        $data = Student::findOrFail($request->input('id'));
         return response()->json($data);
     }
 
@@ -83,15 +97,16 @@ class StudentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        $findStudent = Student::findOrFail($id);
+        $findStudent = Student::findOrFail($request->input('student_id'));
         if(!empty($findStudent)){
-            $validator = $this->validator($request)->validate();
-            $validator['upated_by'] = Auth::id();
+            $validator = $this->validator($request);
+            $validator['upated_by'] = $this->safeInputs($request->input('id'));
             $validator['updated_at'] = now();
 
-            $update = Student::update($validator);
+            $update = $findStudent->update($validator);
+
             if($update){
                 return array(
                     "is_success" => true,
@@ -117,15 +132,20 @@ class StudentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request)
     {
-        $findStudent = Student::find($id);
+        $findStudent = Student::find($request->input('id'));
         if(!empty($findStudent)){
             $findStudent->delete();
 
             return array(
                 "is_success" => true,
                 "message" => "Student deleted successfully"
+            );
+        }else{
+            return array(
+                "is_success" => false,
+                "message" => "Failed to delete student"
             );
         }
     }
@@ -134,33 +154,37 @@ class StudentController extends Controller
     {
         $input = [
             'full_name' => $this->safeInputs($request->input('full_name')),
+            'email' => $this->safeInputs($request->input('email')),
             'contact' => $this->safeInputs($request->input('contact')),
             'region' => $this->safeInputs($request->input('region')),
             'course_id' => $this->safeInputs($request->input('course_id')),
             'section' => $this->safeInputs($request->input('section')),
-            'status_id' => $this->safeInputs($request->input('status_id'))
+            // 'status_id' => $this->safeInputs($request->input('status_id'))
         ];
 
         $rules = [
             'full_name' => 'required|string',
-            'contact' => 'nullable|string|unique:studens,contact,'.$this->safeInputs($request->input('id')),
+            'email' => 'required|string', // |unique:students,email,'.$this->safeInputs($request->input('id'))
+            'contact' => 'required|string', // |unique:students,contact,'.$this->safeInputs($request->input('id'))
+            'region' => 'required|string',
             'course_id' => 'required|numeric',
             'section' => 'required|string',
-            'status_id' => 'required|numeric'
+            // 'status_id' => 'required|numeric'
         ];
 
         $messages = [];
 
         $customAttributes = [
             'full_name' => 'full name',
+            'email' => 'email address',
             'contact' => 'contact',
             'course_id' => 'course',
             'section' => 'section',
-            'status_id' => 'status'
+            // 'status_id' => 'status'
         ];
 
         $validator = Validator::make($input, $rules, $messages,$customAttributes);
-        return $validator;
+        return $validator->validate();
     }
 
     public function changeValue($rows){

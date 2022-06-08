@@ -19,6 +19,7 @@ class DatabaseSeeder extends Seeder
             NavigationSeeder::class,
             StudentSeeder::class,
             StatusSeeder::class,
+            CourseSeeder::class
         ]);
     }
 }

@@ -11129,29 +11129,35 @@ body .font-13 {
 body .font-14 {
   font-size: 14px;
 }
-body .font-16 {
+body .font-16, body main .modal .modal-content .modal-footer button {
   font-size: 16px;
 }
 body .border-radius {
   border-radius: 8px;
 }
-body .field-container {
+body #auth {
+  overflow: hidden;
+  background-attachment: fixed;
+  background-size: 100%;
+  font-family: "Roboto", "Segoe UI", sans-serif;
+}
+body .auth-card .field-container {
   position: relative;
   border: 1px solid #bcbaba;
   height: 53px;
   border-radius: 10px;
   padding-left: 12px;
 }
-body .field-container:focus-within {
+body .auth-card .field-container:focus-within {
   border: 1px solid #b1b6bd;
 }
-body .field-container:focus-within .show-password-btn {
+body .auth-card .field-container:focus-within .show-password-btn {
   display: block;
 }
-body .field-container:focus-within .show-password-btn #eyes-open {
+body .auth-card .field-container:focus-within .show-password-btn #eyes-open {
   display: none;
 }
-body .field-placeholder {
+body .auth-card .field-placeholder {
   position: absolute;
   top: 50%;
   transform: translate(5px, -50%);
@@ -11161,8 +11167,8 @@ body .field-placeholder {
   color: #fff;
   background-color: transparent;
 }
-body input[type=email].form-control,
-body input[type=password].form-control {
+body .auth-card input[type=email].form-control,
+body .auth-card input[type=password].form-control {
   color: #fff;
   padding: 5px;
   font-size: 0.875rem;
@@ -11171,55 +11177,55 @@ body input[type=password].form-control {
   border: none;
   outline: none;
 }
-body input[type=email].form-control:not(:-moz-placeholder-shown), body input[type=password].form-control:not(:-moz-placeholder-shown) {
+body .auth-card input[type=email].form-control:not(:-moz-placeholder-shown), body .auth-card input[type=password].form-control:not(:-moz-placeholder-shown) {
   border-color: transparent;
 }
-body input[type=email].form-control:not(:-ms-input-placeholder), body input[type=password].form-control:not(:-ms-input-placeholder) {
+body .auth-card input[type=email].form-control:not(:-ms-input-placeholder), body .auth-card input[type=password].form-control:not(:-ms-input-placeholder) {
   border-color: transparent;
 }
-body input[type=email].form-control.c-fix, body input[type=email].form-control:focus, body input[type=email].form-control:not(:placeholder-shown),
-body input[type=password].form-control.c-fix,
-body input[type=password].form-control:focus,
-body input[type=password].form-control:not(:placeholder-shown) {
+body .auth-card input[type=email].form-control.c-fix, body .auth-card input[type=email].form-control:focus, body .auth-card input[type=email].form-control:not(:placeholder-shown),
+body .auth-card input[type=password].form-control.c-fix,
+body .auth-card input[type=password].form-control:focus,
+body .auth-card input[type=password].form-control:not(:placeholder-shown) {
   border-color: transparent;
 }
-body input[type=email].form-control:not(:-moz-placeholder-shown) ~ label, body input[type=password].form-control:not(:-moz-placeholder-shown) ~ label {
+body .auth-card input[type=email].form-control:not(:-moz-placeholder-shown) ~ label, body .auth-card input[type=password].form-control:not(:-moz-placeholder-shown) ~ label {
   font-size: 0.75rem;
   top: calc(-5% - 0.4rem);
   left: 5px;
   transform: translate(5px, 0%);
   text-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
 }
-body input[type=email].form-control:not(:-ms-input-placeholder) ~ label, body input[type=password].form-control:not(:-ms-input-placeholder) ~ label {
+body .auth-card input[type=email].form-control:not(:-ms-input-placeholder) ~ label, body .auth-card input[type=password].form-control:not(:-ms-input-placeholder) ~ label {
   font-size: 0.75rem;
   top: calc(-5% - 0.4rem);
   left: 5px;
   transform: translate(5px, 0%);
   text-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
 }
-body input[type=email].form-control.c-fix ~ label, body input[type=email].form-control:focus ~ label, body input[type=email].form-control:not(:placeholder-shown) ~ label,
-body input[type=password].form-control.c-fix ~ label,
-body input[type=password].form-control:focus ~ label,
-body input[type=password].form-control:not(:placeholder-shown) ~ label {
+body .auth-card input[type=email].form-control.c-fix ~ label, body .auth-card input[type=email].form-control:focus ~ label, body .auth-card input[type=email].form-control:not(:placeholder-shown) ~ label,
+body .auth-card input[type=password].form-control.c-fix ~ label,
+body .auth-card input[type=password].form-control:focus ~ label,
+body .auth-card input[type=password].form-control:not(:placeholder-shown) ~ label {
   font-size: 0.75rem;
   top: calc(-5% - 0.4rem);
   left: 5px;
   transform: translate(5px, 0%);
   text-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
 }
-body input[type=email].form-control::-webkit-input-placeholder,
-body input[type=password].form-control::-webkit-input-placeholder {
+body .auth-card input[type=email].form-control::-webkit-input-placeholder,
+body .auth-card input[type=password].form-control::-webkit-input-placeholder {
   color: transparent;
 }
-body input[type=email].form-control::-moz-placeholder,
-body input[type=password].form-control::-moz-placeholder {
+body .auth-card input[type=email].form-control::-moz-placeholder,
+body .auth-card input[type=password].form-control::-moz-placeholder {
   color: transparent;
 }
-body input[type=email].form-control:-ms-input-placeholder,
-body input[type=password].form-control:-ms-input-placeholder {
+body .auth-card input[type=email].form-control:-ms-input-placeholder,
+body .auth-card input[type=password].form-control:-ms-input-placeholder {
   color: transparent;
 }
-body .show-password-btn {
+body .auth-card .show-password-btn {
   display: none;
   border: none;
   background-color: transparent;
@@ -11227,12 +11233,6 @@ body .show-password-btn {
   position: absolute;
   right: 15px;
   top: 12px;
-}
-body #auth {
-  overflow: hidden;
-  background-attachment: fixed;
-  background-size: 100%;
-  font-family: "Roboto", "Segoe UI", sans-serif;
 }
 body .auth-card .card {
   background: rgba(47, 47, 47, 0.2);
@@ -11742,14 +11742,12 @@ body main .modal {
 body main .modal .modal-content {
   background-color: #fff;
   margin: auto;
-  padding: 0;
   width: 40%;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   -webkit-animation-name: animatetop;
           animation-name: animatetop;
   -webkit-animation-duration: 0.4s;
           animation-duration: 0.4s;
-  border-radius: 12px;
   overflow: hidden;
   border: none;
   box-shadow: 1px 15px 50px rgba(0, 0, 0, 0.1);
@@ -11766,10 +11764,6 @@ body main .modal .modal-content .modal-footer {
   border: none !important;
 }
 body main .modal .modal-content .modal-header {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
   padding-bottom: 15px !important;
 }
 body main .modal .modal-content .modal-header .modal-body {
@@ -11780,8 +11774,101 @@ body main .modal .modal-content .modal-header .modal-body p {
   font-weight: normal !important;
   margin-bottom: 0;
 }
+body main .modal .modal-content .modal-header .form-control {
+  box-shadow: none;
+  height: auto;
+  margin-top: 10px;
+  border-radius: 4px;
+}
+body main .modal .modal-content .modal-header .field-container {
+  position: relative;
+  border: 2px solid #9E9E9E;
+  height: 53px;
+  border-radius: 10px;
+  padding-left: 12px;
+  width: 100%;
+  margin-bottom: 15px;
+}
+body main .modal .modal-content .modal-header .field-container:focus-within {
+  border: 1px solid #b1b6bd;
+}
+body main .modal .modal-content .modal-header .field-placeholder {
+  position: absolute;
+  top: 50%;
+  transform: translate(5px, -50%);
+  pointer-events: none;
+  transition: all 0.1s ease-in-out;
+  font-size: 0.875rem;
+  color: #2E3A59;
+  background-color: transparent;
+}
+body main .modal .modal-content .modal-header input.form-control,
+body main .modal .modal-content .modal-header select.form-control {
+  color: #2E3A59;
+  padding: 5px;
+  font-size: 0.875rem;
+  display: block;
+  box-shadow: none;
+  border: none;
+  outline: none;
+}
+body main .modal .modal-content .modal-header input.form-control:not(:-moz-placeholder-shown), body main .modal .modal-content .modal-header select.form-control:not(:-moz-placeholder-shown) {
+  border-color: transparent;
+}
+body main .modal .modal-content .modal-header input.form-control:not(:-ms-input-placeholder), body main .modal .modal-content .modal-header select.form-control:not(:-ms-input-placeholder) {
+  border-color: transparent;
+}
+body main .modal .modal-content .modal-header input.form-control.c-fix, body main .modal .modal-content .modal-header input.form-control:focus, body main .modal .modal-content .modal-header input.form-control:not(:placeholder-shown),
+body main .modal .modal-content .modal-header select.form-control.c-fix,
+body main .modal .modal-content .modal-header select.form-control:focus,
+body main .modal .modal-content .modal-header select.form-control:not(:placeholder-shown) {
+  border-color: transparent;
+}
+body main .modal .modal-content .modal-header input.form-control:not(:-moz-placeholder-shown) ~ label, body main .modal .modal-content .modal-header select.form-control:not(:-moz-placeholder-shown) ~ label {
+  font-size: 0.75rem;
+  top: calc(-5% - 0.4rem);
+  left: 5px;
+  transform: translate(5px, 0%);
+  text-shadow: 0px 0px 15px rgba(179, 176, 176, 0.2);
+  font-weight: 700;
+}
+body main .modal .modal-content .modal-header input.form-control:not(:-ms-input-placeholder) ~ label, body main .modal .modal-content .modal-header select.form-control:not(:-ms-input-placeholder) ~ label {
+  font-size: 0.75rem;
+  top: calc(-5% - 0.4rem);
+  left: 5px;
+  transform: translate(5px, 0%);
+  text-shadow: 0px 0px 15px rgba(179, 176, 176, 0.2);
+  font-weight: 700;
+}
+body main .modal .modal-content .modal-header input.form-control.c-fix ~ label, body main .modal .modal-content .modal-header input.form-control:focus ~ label, body main .modal .modal-content .modal-header input.form-control:not(:placeholder-shown) ~ label,
+body main .modal .modal-content .modal-header select.form-control.c-fix ~ label,
+body main .modal .modal-content .modal-header select.form-control:focus ~ label,
+body main .modal .modal-content .modal-header select.form-control:not(:placeholder-shown) ~ label {
+  font-size: 0.75rem;
+  top: calc(-5% - 0.4rem);
+  left: 5px;
+  transform: translate(5px, 0%);
+  text-shadow: 0px 0px 15px rgba(179, 176, 176, 0.2);
+  font-weight: 700;
+}
+body main .modal .modal-content .modal-header input.form-control::-webkit-input-placeholder,
+body main .modal .modal-content .modal-header select.form-control::-webkit-input-placeholder {
+  color: transparent;
+}
+body main .modal .modal-content .modal-header input.form-control::-moz-placeholder,
+body main .modal .modal-content .modal-header select.form-control::-moz-placeholder {
+  color: transparent;
+}
+body main .modal .modal-content .modal-header input.form-control:-ms-input-placeholder,
+body main .modal .modal-content .modal-header select.form-control:-ms-input-placeholder {
+  color: transparent;
+}
 body main .modal .modal-content .modal-footer {
-  justify-content: center !important;
+  justify-content: space-between !important;
+}
+body main .modal .modal-content .modal-footer button {
+  padding: 3px 20px;
+  font-weight: 700;
 }
 body main .modal .modal-content .modal-footer #btn-save {
   background-color: #0066CC;
@@ -11793,7 +11880,7 @@ body main .modal .modal-content .modal-footer #btn-save {
     opacity: 0;
   }
   to {
-    top: 0;
+    top: 0px;
     opacity: 1;
   }
 }
@@ -11803,7 +11890,7 @@ body main .modal .modal-content .modal-footer #btn-save {
     opacity: 0;
   }
   to {
-    top: 0;
+    top: 0px;
     opacity: 1;
   }
 }

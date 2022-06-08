@@ -20,4 +20,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('dashboard', [App\Http\Controllers\APIs\ApiController::class, 'dashboard']);
 
-Route::apiResource('students', App\Http\Controllers\APIs\StudentController::class);
+Route::get('students', [App\Http\Controllers\APIs\StudentController::class, 'index']);
+Route::post('students/store', [App\Http\Controllers\APIs\StudentController::class, 'store']);
+Route::get('students/show', [App\Http\Controllers\APIs\StudentController::class, 'show']);
+Route::put('students/update', [App\Http\Controllers\APIs\StudentController::class, 'update']);
+Route::delete('students/delete', [App\Http\Controllers\APIs\StudentController::class, 'destroy']);

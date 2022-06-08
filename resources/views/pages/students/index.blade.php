@@ -32,7 +32,7 @@
     <div class="header-content">
         <h3 class="font-weight-600">Student List</h3>
     
-        <button class="btn btn-primary font-weight-600">Add a new student</button>
+        <button class="btn btn-primary btn-add font-weight-600">Add a new student</button>
     </div>
     
     <div class="content">
@@ -64,15 +64,93 @@
     </div>
 </div>
 
-{{-- <x-atoms.alert />
+<!-- The Modal -->
+<form class="modal" 
+    id="form-submit">
+    
+    @csrf
 
-<div class="content mx-4">
-    <x-molecules.table-filter
-        :pagesize="$pagesize"
-        :route="route($create)" />
+    <div class="modal-content px-4 py-3">
+        <div class="modal-header">      
+            <div class="d-flex flex-column w-100">
+                <div class="field-container">
+                    <input class="form-control" 
+                        id="full_name" 
+                        name="full_name" 
+                        type="full_name"
+                        placeholder=" "
+                        autocomplete="off">
+                    <label class="field-placeholder" 
+                        for="full_name">Full Name</label>
+                </div>
+                <div class="field-container">
+                    <input class="form-control" 
+                        id="email" 
+                        name="email" 
+                        type="email"
+                        placeholder=" "
+                        autocomplete="off">
+                    <label class="field-placeholder" 
+                        for="email">Email Address</label>
+                </div>
+                <div class="field-container">
+                    <input class="form-control" 
+                        id="contact" 
+                        name="contact" 
+                        type="text"
+                        placeholder=" "
+                        autocomplete="off">
+                    <label class="field-placeholder" 
+                        for="contact">Contact</label>
+                </div>
+                <div class="field-container">
+                    <input class="form-control" 
+                        id="region" 
+                        name="region" 
+                        type="text"
+                        placeholder=" "
+                        autocomplete="off">
+                    <label class="field-placeholder" 
+                        for="region">Region</label>
+                </div>
+                <div class="field-container">
+                    <select name="course_id" id="course_id" class="form-control custom-select">
+                        <option value="">--Select Course--</option>
+                    </select>
+                    <label class="field-placeholder" 
+                        for="course">Course</label>
+                </div>
+                <div class="field-container">
+                    <input class="form-control" 
+                        id="section" 
+                        name="section" 
+                        type="text"
+                        placeholder=" "
+                        autocomplete="off">
+                    <label class="field-placeholder" 
+                        for="section">Section</label>
+                </div>
+                @method("PUT")
+                {{-- student ID --}}
+                <input type="hidden" name="student_id" id="student_id" value="">
+                {{-- auth ID --}}
+                <input type="hidden" name="id" id="id" value="{{ auth()->user()->id }}">
+            </div>
+        </div>
 
-    <x-atoms.ag-grid />
-</div> --}}
+        <div class="modal-footer">
+            <button type="button" 
+                class="btn btn-danger" 
+                id="btn-cancel">Cancel</button>
+
+            <button type="button" 
+                class="btn btn-success text-white" 
+                id="btn-submit">Submit</button>
+            
+        </div>
+    </div>
+</form>
+<!-- Ends here -->
 
 <br>
 @endsection
@@ -86,17 +164,57 @@
 <script type="text/javascript" src="{{ asset('js/index.js') }}"></script>
 
 <script type="text/javascript">
+var token = $('meta[name=csrf]').attr('content');
+
 $.ajax({
     url: 'api/students',
     type: 'GET',
     dataType: 'json',
     success: (response) => {
-        // var editURL = '{{ route("students.edit", ":id") }}';
-        // var removeURL = '{{ route("students.destroy", ":id") }}';
-        // var importURL = '{{ route("students.import") }}';
-
         initAgGrid(response, true);
+
+        var content = "";
+        for (course of response.courses) {
+            console.log(course);
+            content += '<option value="'+course.id+'">'+course.name+'</option>'; 
+        }
+
+        $('#course_id').append(content);
     }
+});
+
+$('.btn-add').on('click', function(){
+    $('#form-submit').attr('style', 'display: flex;');
+});
+
+$('#btn-submit').on('click', function(){
+    var route = ($('#student_id').val() != "") ? "/api/students/update" : "/api/students/store";
+    var type = ($('#student_id').val() != "") ? 'PUT' : 'POST';
+
+    $.ajax({
+        url: route,
+        type: type,
+        data: {
+            full_name: $('#full_name').val(),
+            email: $('#email').val(),
+            contact: $('#contact').val(),
+            region: $('#region').val(),
+            course_id: $('#course_id').val(),
+            section: $('#section').val(),
+            id: $('#id').val(), // Auth ID
+            student_id: $("#student_id").val(), // Student ID
+            _token: token
+        },
+        success : function(response){
+            if(response.is_success){
+                alert(response.message);
+
+                window.location.href = '/students';
+            }else{
+                alert(response.message);
+            }
+        }
+    });
 });
 
 </script>
