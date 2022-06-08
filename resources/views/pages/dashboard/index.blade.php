@@ -85,19 +85,107 @@
             <h3>Quarterly Exam</h3>
 
             <div class="grid-exams">
-                <div class="exam-card">
-                    <div class="img-wrapper">
-                        <img src="{{ asset('images/dashboard/exams/microphone.svg') }}"
-                        alt="microphone"
-                        width="20"
-                        height="19">
+
+                <div class="d-flex align-items-start justify-content-between p-4 border-radius border">
+                    <div class="exam-details">
+                        <div class="img-wrapper img-wrapper-warning">
+                            <img src="{{ asset('images/dashboard/exams/headphones.svg') }}"
+                                alt="headphones"
+                                width="24"
+                                height="23">
+                        </div>
+                    
+                        <div class="h4 font-weight-600">
+                            <div class="rate font-16">15%</div>
+                            <div class="rate font-14">Listening</div>
+                        </div>
+    
+                        <div class="h4 font-12">20 Student</div>
                     </div>
 
-                    <div class="h4 font-weight font-16">
-                        <span>15%</span><br>
-                        <span>Listening</span>
+                    <div class="more-vertical">
+                        <img src="{{ asset('images/dashboard/exams/more-vertical.svg') }}" 
+                            alt="more vertical"
+                            height="18"
+                            width="4">
                     </div>
                 </div>
+                
+                <div class="d-flex align-items-start justify-content-between p-4 border-radius border">
+                    <div class="exam-details">
+                        <div class="img-wrapper img-wrapper-danger">
+                            <img src="{{ asset('images/dashboard/exams/ruler&pen.svg') }}"
+                                alt="ruler&pen"
+                                width="24"
+                                height="23">
+                        </div>
+                    
+                        <div class="h4 font-weight-600">
+                            <div class="rate font-16">32%</div>
+                            <div class="rate font-14">Grammar</div>
+                        </div>
+    
+                        <div class="h4 font-12">80 Student</div>
+                    </div>
+
+                    <div class="more-vertical">
+                        <img src="{{ asset('images/dashboard/exams/more-vertical.svg') }}" 
+                            alt="more vertical"
+                            height="18"
+                            width="4">
+                    </div>
+                </div>
+
+                <div class="d-flex align-items-start justify-content-between p-4 border-radius border">
+                    <div class="exam-details">
+                        <div class="img-wrapper img-wrapper-info">
+                            <img src="{{ asset('images/dashboard/exams/microphone.svg') }}"
+                                alt="microphone"
+                                width="24"
+                                height="23">
+                        </div>
+                    
+                        <div class="h4 font-weight-600">
+                            <div class="rate font-16">21%</div>
+                            <div class="rate font-14">Pronunciation</div>
+                        </div>
+    
+                        <div class="h4 font-12">20 Student</div>
+                    </div>
+
+                    <div class="more-vertical">
+                        <img src="{{ asset('images/dashboard/exams/more-vertical.svg') }}" 
+                            alt="more vertical"
+                            height="18"
+                            width="4">
+                    </div>
+                </div>
+
+                <div class="d-flex align-items-start justify-content-between p-4 border-radius border">
+                    <div class="exam-details">
+                        <div class="img-wrapper img-wrapper-success">
+                            <img src="{{ asset('images/dashboard/exams/headphones.svg') }}"
+                                alt="microphone"
+                                width="24"
+                                height="23">
+                        </div>
+                    
+                        <div class="h4 font-weight-600 ">
+                            <div class="rate font-16">64%</div>
+                            <div class="rate font-14">Dictionary</div>
+                        </div>
+    
+                        <div class="h4 font-12">20 Student</div>
+                    </div>
+
+                    <div class="more-vertical">
+                        <img src="{{ asset('images/dashboard/exams/more-vertical.svg') }}" 
+                            alt="more vertical"
+                            height="18"
+                            width="4">
+                    </div>
+                </div>
+
             </div>
         </div>
     </div>

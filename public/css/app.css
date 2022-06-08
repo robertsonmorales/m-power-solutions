@@ -11660,6 +11660,47 @@ body main .user-profile .divider {
 body main .grid-statistic .px-3 {
   margin-bottom: 30px;
 }
+body main .grid-quarterly-exam .grid-exams {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  -moz-column-gap: 32px;
+       column-gap: 32px;
+  row-gap: 32px;
+}
+body main .grid-quarterly-exam .grid-exams .border {
+  border: 1px solid #F0F0F0;
+}
+body main .grid-quarterly-exam .grid-exams .exam-details .img-wrapper-warning {
+  background-color: #FFB978;
+}
+body main .grid-quarterly-exam .grid-exams .exam-details .img-wrapper-danger {
+  background-color: #F86060;
+}
+body main .grid-quarterly-exam .grid-exams .exam-details .img-wrapper-info {
+  background-color: #778DFF;
+}
+body main .grid-quarterly-exam .grid-exams .exam-details .img-wrapper-success {
+  background-color: #64E662;
+}
+body main .grid-quarterly-exam .grid-exams .exam-details .img-wrapper {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  margin-bottom: 16px;
+}
+body main .grid-quarterly-exam .grid-exams .exam-details .img-wrapper img {
+  width: 24px;
+  height: 23px;
+  -o-object-fit: fill;
+     object-fit: fill;
+}
+body main .grid-quarterly-exam .grid-exams .exam-details .rate {
+  margin-bottom: 8px;
+}
 body main .modal {
   display: none;
   position: fixed;
