@@ -1,24 +1,24 @@
 .card{
     overflow: hidden;
-    text-align: left;
-    @extend .glassmorphism, .shadow;
+    border-radius: $card-radius;
 
     .card-body{
         display: flex;
         align-items: center;
         justify-content: space-between;
+        width: 100%;
 
-        .card-content{
+        .card-body-item{
             display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-        }
-    }
+            align-items: center;
 
-    .card-icon{
-        .feather{
-            height: 18px;
-            width: 18px;
+            img{
+                margin-right: 12px;
+            }
+
+            h4{
+                line-height: 24px;
+            }
         }
     }
 
@@ -69,5 +69,112 @@
             padding-left: 15px;
             padding-right: 15px;
         }
+    }
+}
+
+.d-cards{
+    min-height: 80px;
+    min-width: 185px;
+    border: none;
+    margin-right: 32px;
+
+    &:last-child{
+        margin-right: 0;
+    }
+}
+
+.bg-cards-primary{
+    background-color: $d-primary;
+}
+
+.bg-cards-danger{
+    background-color: $d-danger;
+}
+
+.bg-cards-warning{
+    background-color: $d-warning;
+}
+
+.bg-cards-success{
+    background-color: $d-success;
+}
+
+// **** GRID ***** //
+.d-grid{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 60% 33%;
+    column-gap: 32px;
+    row-gap: 32px;
+
+    h3{
+        font-size: 20px;
+        font-weight: 700;
+        line-height: 28px;
+        margin-bottom: 24px;
+    }
+}
+
+.grid-card-group{
+    .grid-items{
+        display: flex;
+        overflow-x: hidden;
+        position: relative;
+
+        .blur-end{
+            position: absolute;
+            right: 0;
+            background: linear-gradient(270deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 66.67%);
+            min-height: 80px;
+            min-width: 156px;            
+        }
+    }
+}
+
+.user-profile{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    min-height: 80px;
+    height: 80px;
+
+    img{
+        margin-right: 8px;
+        width: 48px;
+        height: 48px;
+        object-fit: fill;
+    }
+
+    h4{
+        line-height: 24px;
+    }
+
+    .user-layout{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-end;
+
+        .items{
+            .font-14{
+                margin-right: 15px;
+            }
+
+            .h4{
+                font-size: 20px;
+            }
+        }
+    }
+
+    .divider{
+        background-color: #F0F0F0;
+        width: 89px;
+        height: 1px;
+        margin: 1px 0;
+    }
+}
+
+.grid-statistic{
+    .px-3{
+        margin-bottom: 30px;
     }
 }

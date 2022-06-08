@@ -2,100 +2,105 @@
 @section('title', $title)
 
 @section('content')
-<div class="mx-4">
-    <div class="card-group">
-        <div class="card mb-sm-3 mr-sm-3 card-order-1">
-            <div class="card-body flex-sm-column-reverse flex-lg-row">
-                <div class="card-content">
-                    <span class="text-muted font-size-sm">Your Earnings</span>
-                    <div class="card-title d-flex align-items-center mb-auto">
-                        <h3 class="mr-2">$15,000</h3>
-                        <span class="text-success">
-                            <i data-feather="trending-up"></i>
-                        </span>
-                    </div>
-                </div>
+<div class="">
+    <div class="d-grid">
+        {{-- Cards --}}
+        <div class="grid-card-group">
+            <h3 class="font-weight-600">Knowledge Base</h3>
 
-                <x-atoms.circle-icon 
-                    value="dollar-sign" 
-                    type="card-icon bg-info text-white mb-sm-2 mb-md-0" />
+            <div class="grid-items">
+                <x-molecules.dashboard-card 
+                    class="card d-cards bg-cards-primary"
+                    text="Student"
+                    textClass="text-primary"
+                    mode="primary" />
+
+                <x-molecules.dashboard-card 
+                    class="card d-cards bg-cards-danger"
+                    text="Drop Out"
+                    textClass="text-danger"
+                    mode="danger" />
+                    
+                <x-molecules.dashboard-card 
+                    class="card d-cards bg-cards-warning"
+                    text="Pending"
+                    textClass="text-warning"
+                    mode="warning" />
+
+                <x-molecules.dashboard-card 
+                    class="card d-cards bg-cards-success"
+                    text="Audit files"
+                    textClass="text-success"
+                    mode="success" />
+
+                <div class="blur-end"></div>
             </div>
         </div>
 
-        <div class="card mb-sm-3 mr-lg-3 card-order-2">
-            <div class="card-body flex-sm-column-reverse flex-lg-row">
-                <div class="card-content">
-                    <span class="text-muted font-size-sm">Your Expenditures</span>
-                    <div class="card-title d-flex align-items-center mb-auto">
-                        <h3 class="mr-2">$10,123</h3>
-                        <span class="text-success">
-                            <i data-feather="trending-up"></i>
-                        </span>
+        {{-- User Profile --}}
+
+        <div class="d-flex flex-column justify-content-start">
+            <h3>User Profile</h3>
+
+            <div class="user-profile bg-light border-radius px-3">
+                <div class="d-flex align-items-center">
+                    <img src="{{ asset('images/profile.png') }}"
+                        alt="profile"
+                        width="48"
+                        height="48">
+                    <div class="ml-2 d-flex flex-column">
+                        <h4 class="font-16 font-weight-600 mb-0">Maharrm Hasanli</h4>
+                        <span class="text-muted font-light font-12">maga.hesenli@gmail.com</span>
                     </div>
                 </div>
-
-                <x-atoms.circle-icon 
-                    value="database" 
-                    type="card-icon bg-danger text-white mb-sm-2 mb-md-0" />
+                <div class="user-layout">
+                    <div class="items">
+                        <span class="font-14">Terms:</span>
+                        <span class="h4 font-weight-600 mb-0">5</span>
+                    </div>
+                    <div class="divider"></div>
+                    <div class="items">
+                        <span class="font-14">Lessons:</span>
+                        <span class="h4 font-weight-600 mb-0">98</span>
+                    </div>
+                </div>
             </div>
         </div>
 
-        <div class="w-100 d-none d-sm-block d-lg-none"></div>
+        {{-- Statistic --}}
+        <div class="grid-statistic bg-light border-radius">
+            <div class="px-4 pt-4">
+                <h3 class="mb-0">Statistic</h3>
+            </div>
 
-        <div class="card mb-sm-3 mr-sm-3 card-order-3">
-            <div class="card-body flex-sm-column-reverse flex-lg-row">
-                <div class="card-content align-items-sm-center align-items-lg-start w-100 mb-auto">
-                    <span class="text-muted font-size-sm">Annual Budget Overview</span>
-                    <h3 class="card-title">$45K</h3>
-                    <div class="progress w-75">
-                        <div class="progress-bar bg-secondary" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
-                    </div>
-                </div>
-
-                <x-atoms.circle-icon 
-                    value="calendar" 
-                    type="card-icon bg-warning text-white mb-sm-2 mb-md-0" />
+            <div class="chart p-3">
+                <div id="revenue-chart" 
+                    class="revenue-chart" 
+                    style="width: 100%; height: 100%;"></div>
             </div>
         </div>
 
-        <div class="card mb-sm-3 card-order-4">
-            <div class="card-body flex-sm-column-reverse flex-lg-row">
-                <div class="card-content">
-                    <span class="text-muted font-size-sm">Verified Users</span>
-                    <div class="card-title d-flex align-items-center mb-auto">
-                        <h3 class="mr-2">15,123</h3>
-                        <span class="text-success">
-                            <i data-feather="trending-up"></i>
-                        </span>
+        {{-- Quarterly Exam --}}
+        <div class="grid-quarterly-exam">
+            <h3>Quarterly Exam</h3>
+
+            <div class="grid-exams">
+                <div class="exam-card">
+                    <div class="img-wrapper">
+                        <img src="{{ asset('images/dashboard/exams/microphone.svg') }}"
+                        alt="microphone"
+                        width="20"
+                        height="19">
+                    </div>
+
+                    <div class="h4 font-weight font-16">
+                        <span>15%</span><br>
+                        <span>Listening</span>
                     </div>
                 </div>
-
-                <x-atoms.circle-icon 
-                    value="users" 
-                    type="card-icon bg-primary text-white mb-sm-2 mb-md-0" />
             </div>
-        </div>
-    </div>    
-
-    <!-- charts -->
-    <div class="card-group">
-        <div class="card mr-md-3 card-order-5">
-            <div class="card-body">
-                <div class="card-content w-100">
-                    <div id="revenue-chart" class="revenue-chart" style="width: 100%; height: 100%;"></div>
-                </div>                    
-            </div> 
-        </div>
-
-        <div class="card card-order-6">
-            <div class="card-body">
-                <div class="card-content w-100">
-                    <div id="expenditures-chart" class="expenditures-chart" style="width: 100%; height: 100%;"></div>
-                </div>
-            </div> 
         </div>
     </div>
-    <!-- ends here -->
 </div>
 @endsection
 

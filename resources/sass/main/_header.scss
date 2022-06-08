@@ -7,8 +7,10 @@
     justify-content: space-between;
     align-items: center;
     position: relative;
-    box-shadow: $shadow !important;
-    @extend .glassmorphism;
+    background-color: $white;
+    height: 60px;
+    margin-bottom: 44px;
+    
 
     .btn-menu{
         display: flex;
@@ -16,6 +18,16 @@
         justify-content: center;
         height: 42px;
         width: 42px;
+        transform: scaleX(-1);
+        border: none;
+        background-color: transparent;
+        outline: none;
+        color: #C4C4C4;
+
+        .feather{
+            width: 17px;
+            height: 17px;
+        }
     }
 
     .nav-icons{

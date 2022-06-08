@@ -26,7 +26,7 @@ $label-padding: $field-container-padding !default;
     top: 50%;
     transform: translate(#{$label-padding}, -50%);
     pointer-events: none;
-    transition: all .14s ease-in-out;
+    transition: all .1s ease-in-out;
     font-size: $font-size-base;
     color: $white;
     background-color: transparent;

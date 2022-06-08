@@ -1,17 +1,23 @@
 @import 'mixins';
 
-$body-bg: #efefef; // #f8fafc;
+$body-bg: #FDFDFD; // #f8fafc;
 $body-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' viewBox='0 0 2 1'%3E%3Cdefs%3E%3ClinearGradient id='a' gradientUnits='userSpaceOnUse' x1='0' x2='0' y1='0' y2='1' gradientTransform='rotate(255,0.5,0.5)'%3E%3Cstop offset='0' stop-color='%23dddddd'/%3E%3Cstop offset='1' stop-color='%23eeeeee'/%3E%3C/linearGradient%3E%3ClinearGradient id='b' gradientUnits='userSpaceOnUse' x1='0' y1='0' x2='0' y2='1' gradientTransform='rotate(182,0.5,0.5)'%3E%3Cstop offset='0' stop-color='%23fff8f5' stop-opacity='0'/%3E%3Cstop offset='1' stop-color='%23fff8f5' stop-opacity='1'/%3E%3C/linearGradient%3E%3ClinearGradient id='c' gradientUnits='userSpaceOnUse' x1='0' y1='0' x2='2' y2='2' gradientTransform='rotate(360,0.5,0.5)'%3E%3Cstop offset='0' stop-color='%23fff8f5' stop-opacity='0'/%3E%3Cstop offset='1' stop-color='%23fff8f5' stop-opacity='1'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect x='0' y='0' fill='url(%23a)' width='2' height='1'/%3E%3Cg fill-opacity='0.5'%3E%3Cpolygon fill='url(%23b)' points='0 1 0 0 2 0'/%3E%3Cpolygon fill='url(%23c)' points='2 1 2 0 0 0'/%3E%3C/g%3E%3C/svg%3E");
 
 $default: #909090; 
 $primary: #0066CC; // #0061f2;
 $secondary: #3f566c; // #3f51b5;
 $light: #f8f9fa;
-$success: #4caf50; // #20c997
-$warning: #ff9800;
-$info: #03a9f4;
-$danger: #dc3545;
-$dark: #585858;
+$success: #39DE54; // #20c997
+$warning: #FF9533;
+$info: #3366ff;
+$danger: #FF333F;
+$dark: #2E3A59;
+$muted: #8F9BB3;
+
+$d-primary: #3366ff33;
+$d-danger: #ff333f33;
+$d-warning: #ff953333;
+$d-success: #39DE5433;
 
 $theme-colors: (
     'primary': $primary,
@@ -52,6 +58,7 @@ $input-radius: 10px;
 $btn-radius: 5px;
 $img-radius: 2rem;
 $img-sm-radius: 1.2rem;
+$card-radius: 8px;
 
 $auth-height: 45px;
 $input-height: 53px;
@@ -60,6 +67,7 @@ $circle: 50%;
 $border-left: 4px;
 
 $font-family: 'Roboto', 'Segoe UI', sans-serif;
+$font-family-1: 'Gilroy', 'Segoe UI', sans-serif;
 $font-size-base: 0.875rem; // 1rem;
 $font-13: 0.813em;
 $font-12: 0.75rem;
@@ -67,3 +75,5 @@ $font-12: 0.75rem;
 $line-height-base: 1.6;
 
 $blur: blur(8.4348px);
+
+$sidebar-bg: #F7F9FC;

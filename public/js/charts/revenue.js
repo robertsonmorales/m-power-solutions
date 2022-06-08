@@ -13,7 +13,7 @@ var animations = {
 };
 
 var chartOptions = {
-    type: 'area',
+    type: 'line',
     stacked: false,
     markers: {
         size: 4,
@@ -26,7 +26,7 @@ var chartOptions = {
 
 var gridOptions = {
     show: true,
-    borderColor: '#ddd',
+    borderColor: '#F0F0F0',
     strokeDashArray: 1,
     position: 'back',
     xaxis: {
@@ -51,13 +51,17 @@ var fillOptions = {
     type: 'gradient'
 }
 
+var fontStack = ['Gilroy', 'Roboto', 'Sans-serif'];
+
 var axisStyles = {
-    fontFamily: ['Poppins', 'Montserrat', 'Sans-serif'],
-    color: '#3e4044'
+    fontFamily: fontStack,
+    fontWeight: 700,
+    fontSize: "16px",
+    color: '#2E3A59'
 }
 
 var options = {
-    colors: ["#4caf50"],
+    colors: ["#3366ff", "#39DE54"], // average grades, exams
     series: [],
     noData: {
         text: 'Loading...',
@@ -65,31 +69,29 @@ var options = {
         verticalAlign: 'middle'
     },
     title: {
-        text: 'Revenue Breakdown',
-        style: {
-            fontFamily: ['Poppins', 'Montserrat', 'Sans-serif'],
-            fontWeight: 'normal',
-            color: '#3e4044',
-        }
+        text: 'Progress Score',
+        style: axisStyles
     },
     chart: chartOptions,
     grid: gridOptions,
     stroke: strokeOptions,
-    fill: fillOptions,
-    xaxis: {},
-    yaxis: {
+    // fill: fillOptions,
+    xaxis: {
         labels: {
-            formatter: function (value) {
-                return "$" + initials(value)
-            },
             style: axisStyles
         }
     },
+    yaxis: {
+        show: false,
+        // labels: {
+        //     formatter: function (value) {
+        //         return "$" + initials(value)
+        //     },
+        //     style: axisStyles
+        // }
+    },
     dataLabels: { 
-        enabled: false,
-        formatter: function(value){
-            return '$' + separator(value);             
-        }
+        enabled: false
     },
     tooltip: {
         followCursor: true,
@@ -98,13 +100,21 @@ var options = {
         y: {
             formatter: function (y) {
                 if (typeof y !== "undefined") {
-                    return "$" + separator(y.toFixed(0));
+                    return y + " Point";
                 }
                 
                 return y;
             }
         },
         style: axisStyles
+    },
+    legend: {
+        show: true,
+        position: 'top',
+        horizontalAlign: 'right',
+        floating: true,
+        offsetY: -40,
+        offsetX: -5,
     }
 };
 
@@ -114,13 +124,17 @@ revenue_chart.render();
 
 axios.get('api/dashboard')
 .then((res) => {
-    var data = res.data.data;
+    var avg = res.data.avg;
+    var exams = res.data.exams;
     var months = res.data.months;
 
     revenue_chart.updateOptions({
         series: [{
-            name: 'Revenue',
-            data: data, // import
+            name: 'Average grade',
+            data: avg, // import
+        },{
+            name: "Exams",
+            data: exams // import
         }],
         xaxis: {
             categories: months, // import
@@ -130,54 +144,3 @@ axios.get('api/dashboard')
         }
     })
 });
-
-function separator(data){
-    return data.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-}
-
-function initials(val){
-    var unit = '';
-    if(val != ""){
-        
-        var new_val = separator(val);
-        var place_value = new_val.split(',');           
-
-        if (place_value.length == 1) {
-            unit = '';
-        }
-
-        if (place_value.length == 2) {
-            unit = 'K';
-        }
-
-        // if(place_value.length == 3){
-        //     unit = 'M';
-        // }
-
-        // if(place_value.length == 4){
-        //     unit = 'B';
-        // }
-
-        var get_initial = place_value[0];
-        var new_initials;
-        var new_second_initial;
-
-        if(place_value.length < 2){
-            new_initials = get_initial;
-        }else{
-            var get_second_initial = place_value[1]; // with .5M
-
-            if(get_second_initial.split('')[0] != 0){
-                new_second_initial = get_second_initial.split('')[0];
-                
-                new_initials = get_initial + '.' + new_second_initial + 'M';
-            }else{
-                new_initials = get_initial + unit;
-            }
-        }
-
-        return new_initials;
-    }
-
-    return 0;
-}

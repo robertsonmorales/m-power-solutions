@@ -2,9 +2,10 @@
     flex-direction: column;
     position: sticky;
     overflow-y: auto;
-    width: 320px;
+    width: 77px;
     height: 100vh;
-    @extend .glassmorphism;
+    background-color: $sidebar-bg;
+    font-family: $font-family-1;
 
     .branding-logo{
         @include flexbox(center, center);
@@ -40,5 +41,13 @@
     
     .chevron-down{
         transform: rotate(90deg) !important;
+    }
+
+    .list-group-item-action{
+        height: 56px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 16px;
     }
 }

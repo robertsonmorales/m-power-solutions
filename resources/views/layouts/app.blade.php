@@ -18,18 +18,16 @@
     <div id="app" class="d-flex">
         <x-organisms.sidebar />
         
-        <main class="vh-100">
+        <main class="vh-100 ml-5">
             <x-organisms.header />
 
-            <x-molecules.breadcrumb 
+            {{-- <x-molecules.breadcrumb 
                 :title="$title"
-                :breadcrumbs="$breadcrumbs" />
+                :breadcrumbs="$breadcrumbs" /> --}}
 
             @yield('content')
 
             <br>
-
-            <!-- <x-organisms.footer /> -->
         </main>
     </div>
 
