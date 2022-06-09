@@ -16,7 +16,7 @@ npm-debug.log
 yarn-error.log
 
 #storage
-/storage/*.key
+# /storage/*.key
 /storage/logs/
 /storage/framework/views/
 /storage/framework/cache/
