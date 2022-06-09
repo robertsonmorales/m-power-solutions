@@ -15,8 +15,6 @@ class StudentController extends Controller
      */
     public function index()
     {
-        $this->audit_trail_logs();
-
         return $this->indexView($data=[]);
     }
 
