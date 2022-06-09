@@ -11074,7 +11074,7 @@ body .font-size-sm {
 body .font-weight-500 {
   font-weight: 500 !important;
 }
-body .font-weight-600 {
+body .font-weight-600, body main .custom-badge {
   font-weight: 600 !important;
 }
 body h3 {
@@ -11120,7 +11120,7 @@ body .glassmorphism, body main .account-sidebar {
 body .fill-primary {
   fill: #0066CC;
 }
-body .font-12 {
+body .font-12, body main .custom-badge {
   font-size: 0.75rem;
 }
 body .font-13 {
@@ -11132,8 +11132,15 @@ body .font-14 {
 body .font-16, body main .modal .modal-content .modal-footer button {
   font-size: 16px;
 }
+body .font-20 {
+  font-size: 20px;
+}
 body .border-radius {
   border-radius: 8px;
+}
+body .btn-no {
+  background: #9F9F9F;
+  color: #fff;
 }
 body #auth {
   overflow: hidden;
@@ -11275,22 +11282,24 @@ body .sidebar {
   position: -webkit-sticky;
   position: sticky;
   overflow-y: auto;
-  width: 77px;
+  width: 80px;
   height: 100vh;
   background-color: #F7F9FC;
   font-family: "Gilroy", "Segoe UI", sans-serif;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  padding: 30px auto;
 }
 body .sidebar .branding-logo {
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-bottom: 35px;
 }
 body .sidebar .branding-logo img {
-  width: 50px;
-  height: 52px;
+  width: 36.96px;
+  height: 22.65px;
   -o-object-fit: cover;
      object-fit: cover;
 }
@@ -11299,26 +11308,25 @@ body .sidebar .branding-logo button {
   right: 10px;
   top: 10px;
 }
-body .sidebar .chevron-size-md {
-  transition: all 0.4s ease;
-}
-body .sidebar .chevron-size-md .feather {
-  width: 14px;
-  height: 14px;
-}
-body .sidebar .circle-size-sm .feather {
-  width: 12px;
-  height: 12px;
-}
-body .sidebar .chevron-down {
-  transform: rotate(90deg) !important;
-}
 body .sidebar .list-group-item-action {
-  height: 56px;
+  height: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 16px;
+  margin-bottom: 27px;
+  border-radius: 0;
+  transition: all 0.3s ease;
+}
+body .sidebar .active-tab, body .sidebar .list-group-item-action:hover {
+  border-left: 4px solid #0066CC !important;
+}
+body .sidebar .active-tab svg, body .sidebar .list-group-item-action:hover svg {
+  background-color: rgba(51, 102, 255, 0.2);
+  box-shadow: 0 0 0 8px rgba(51, 102, 255, 0.2);
+  border-radius: 2px;
+}
+body .sidebar .active-tab svg path, body .sidebar .list-group-item-action:hover svg path {
+  stroke: #0066CC;
 }
 body main {
   overflow-y: auto;
@@ -11485,6 +11493,7 @@ body main .content .btn-group {
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  font-family: "Gilroy", "Segoe UI", sans-serif;
 }
 body main .content .btn-group .dropdown-menu {
   min-width: 107px;
@@ -11502,6 +11511,7 @@ body main .content .btn-group .dropdown-menu a, body main .content .btn-group .d
   width: 74px;
   padding: 0px !important;
   color: #fff;
+  font-weight: 700;
 }
 body main .content .btn-group .dropdown-menu .btn-view {
   background-color: #009933;
@@ -11530,6 +11540,13 @@ body main .btn-controls {
 body main .btn-controls .feather {
   width: 18px;
   height: 18px;
+}
+body main .custom-badge {
+  border-radius: 8px;
+  height: 31px;
+  padding: 8px 12px;
+  text-align: center;
+  line-height: 15px;
 }
 body main .card {
   overflow: hidden;
@@ -11774,6 +11791,9 @@ body main .modal .modal-content .modal-header .modal-body p {
   font-weight: normal !important;
   margin-bottom: 0;
 }
+body main .modal .modal-content .modal-header h3 {
+  margin-bottom: 20px;
+}
 body main .modal .modal-content .modal-header .form-control {
   box-shadow: none;
   height: auto;
@@ -11826,18 +11846,18 @@ body main .modal .modal-content .modal-header select.form-control:not(:placehold
 }
 body main .modal .modal-content .modal-header input.form-control:not(:-moz-placeholder-shown) ~ label, body main .modal .modal-content .modal-header select.form-control:not(:-moz-placeholder-shown) ~ label {
   font-size: 0.75rem;
-  top: calc(-5% - 0.4rem);
+  top: calc(-10% - 0.4rem);
   left: 5px;
   transform: translate(5px, 0%);
-  text-shadow: 0px 0px 15px rgba(179, 176, 176, 0.2);
+  text-shadow: 0px 0px 10px rgba(179, 176, 176, 0.5);
   font-weight: 700;
 }
 body main .modal .modal-content .modal-header input.form-control:not(:-ms-input-placeholder) ~ label, body main .modal .modal-content .modal-header select.form-control:not(:-ms-input-placeholder) ~ label {
   font-size: 0.75rem;
-  top: calc(-5% - 0.4rem);
+  top: calc(-10% - 0.4rem);
   left: 5px;
   transform: translate(5px, 0%);
-  text-shadow: 0px 0px 15px rgba(179, 176, 176, 0.2);
+  text-shadow: 0px 0px 10px rgba(179, 176, 176, 0.5);
   font-weight: 700;
 }
 body main .modal .modal-content .modal-header input.form-control.c-fix ~ label, body main .modal .modal-content .modal-header input.form-control:focus ~ label, body main .modal .modal-content .modal-header input.form-control:not(:placeholder-shown) ~ label,
@@ -11845,10 +11865,10 @@ body main .modal .modal-content .modal-header select.form-control.c-fix ~ label,
 body main .modal .modal-content .modal-header select.form-control:focus ~ label,
 body main .modal .modal-content .modal-header select.form-control:not(:placeholder-shown) ~ label {
   font-size: 0.75rem;
-  top: calc(-5% - 0.4rem);
+  top: calc(-10% - 0.4rem);
   left: 5px;
   transform: translate(5px, 0%);
-  text-shadow: 0px 0px 15px rgba(179, 176, 176, 0.2);
+  text-shadow: 0px 0px 10px rgba(179, 176, 176, 0.5);
   font-weight: 700;
 }
 body main .modal .modal-content .modal-header input.form-control::-webkit-input-placeholder,

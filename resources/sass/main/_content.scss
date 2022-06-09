@@ -83,6 +83,7 @@
         align-items: center;
         justify-content: center;
         flex-direction: column;
+        font-family: $font-family-1;
 
         .dropdown-menu{
             min-width: 107px;
@@ -101,6 +102,7 @@
                 width: 74px;
                 padding: 0px !important;
                 color: $white;
+                font-weight: 700;
             }
 
             .btn-view{
@@ -138,4 +140,13 @@
         width: 18px;
         height: 18px;
     }
+}
+
+.custom-badge{
+    border-radius: $card-radius;
+    height: 31px;
+    @extend .font-12, .font-weight-600;
+    padding: 8px 12px;
+    text-align: center;
+    line-height: 15px;
 }

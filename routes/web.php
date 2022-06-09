@@ -17,7 +17,7 @@ use App\Http\Controllers;
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index']);
 
 Auth::routes([
-    // 'register' => false
+    'register' => false
 ]);
 
 Route::middleware('auth')->group(function () {

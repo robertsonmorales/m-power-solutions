@@ -190,7 +190,7 @@ class StudentController extends Controller
     public function changeValue($rows){
         foreach($rows as $key => $val){
             if(Arr::exists($val, 'status_id')){
-                $rows[$key]['status'] = Status::find($val['status_id'])->name;
+                $val['status'] = Status::find($val['status_id']);
             }
 
             unset($val['status_id']);

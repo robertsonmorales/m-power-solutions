@@ -207,6 +207,5 @@
 @endsection
 
 @section('scripts')
-<script src="{{ asset('js/charts/revenue.js') }}"></script>
-<script src="{{ asset('js/charts/expenditures.js') }}"></script>
+<script src="{{ asset('js/charts/statistics.js') }}"></script>
 @endsection

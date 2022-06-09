@@ -25,7 +25,7 @@ class StudentFactory extends Factory
         return [
             "full_name" => $this->faker->name(),
             "email" => $this->faker->email(),
-            "contact" => "",
+            "contact" => "09123456789",
             "region" => $this->faker->address(),
             "section" => $this->faker->numberBetween(1, 10),
             "status_id" => $this->faker->numberBetween(1,3)

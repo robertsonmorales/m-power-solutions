@@ -513,9 +513,16 @@ ag-grid, ag-grid-angular, ag-grid-ng2, ag-grid-polymer, ag-grid-aurelia {
   position: absolute;
   white-space: nowrap; }
 
-.ag-cell-value, .ag-group-value {
+.ag-cell-value{
+  margin-left: 0 !important;
+}
+
+.ag-cell-value,
+.ag-group-value {
   overflow: hidden;
-  text-overflow: ellipsis; }
+  text-overflow: ellipsis; 
+  color: #828282;
+}
 
 .ag-cell-wrapper {
   display: flex;
@@ -914,9 +921,9 @@ ag-grid, ag-grid-angular, ag-grid-ng2, ag-grid-polymer, ag-grid-aurelia {
  ****************************
 */
 .ag-paging-panel {
-  align-items: center;
   display: flex;
-  justify-content: flex-end;
+  align-items: center;
+  justify-content: space-between !important;
 }
 
 .ag-paging-page-summary-panel {

@@ -1,3 +1,5 @@
+// const { split } = require("lodash");
+
 var token = $('meta[name=csrf]').attr('content');
 
 var defaultColDef = {
@@ -90,6 +92,9 @@ function initAgGrid(data, showControls){
                         success: (response) => {
                             var student = response;
 
+                            $('#btn-submit').removeClass('btn-success')
+                                .addClass('btn-primary')
+                                .text('Update');
                             $('#form-submit').attr('style', 'display: flex');
                             $('#student_id').val(student.id);
                             $('#full_name').val(student.full_name);
@@ -104,24 +109,9 @@ function initAgGrid(data, showControls){
 
                 var deleteStudent = el.querySelectorAll('.btn-delete')[0];
                 deleteStudent.addEventListener('click', function() {
-                    $.ajax({
-                        url: "/api/students/delete",
-                        data: {
-                            _token: token,
-                            id: params.data.id
-                        },
-                        type: 'DELETE',
-                        dataType: 'json',
-                        success: (response) => {
-                            if(response.is_success){
-                                alert(response.message);
+                    $('#form-delete').attr('style', 'display: flex');
 
-                                window.location.href = '/students';
-                            }else{
-                                alert(response.message);
-                            }
-                        }
-                    });
+                    $('#stud_id').val(params.data.id);
                 });
                 
                 return el;
@@ -131,11 +121,47 @@ function initAgGrid(data, showControls){
         data.column.push(columnDefs);
     }
 
+    for (var i = data.column.length - 1; i >= 0; i--) {       
+        if (data.column[i].field == "full_name") {
+            data.column[i].cellRenderer = function display(params) {
+                var name = params.data.full_name.split(' ');
+                var firstName = name[0];
+                var lastName = name.reverse()[0];
+
+                return '<div class="d-flex flex-column align-items-start">\
+                    <span class="font-weight-600" style="position: relative; top: 13px; color: #333;">'+firstName+'</span>\
+                    <span style="position: relative; bottom: 13px;">'+lastName+'</span>\
+                </div>';
+            }
+        }
+
+        if (data.column[i].field == "status") {
+            data.column[i].cellRenderer = function display(params) {
+                var status = params.data.status;
+                if (status.id == 1) { // active
+                    return '<div class="custom-badge" style="color: '+status.color+'; background-color: '+status.bg_color+'">'+ status.name +'</div>';
+                }else if (status.id == 2){
+                    return '<div class="custom-badge" style="color: '+status.color+'; background-color: '+status.bg_color+'">'+ status.name +'</div>';
+                }else if (status.id == 3){
+                    return '<div class="custom-badge" style="color: '+status.color+'; background-color: '+status.bg_color+'">'+ status.name +'</div>';
+                }
+            }
+        }
+    }
+
     gridOptions.columnDefs = data.column;
     gridOptions.rowData = data.rows;
 
     // setup the grid after the page has finished loading
     new agGrid.Grid(aggrid, gridOptions);
+
+    // refreshRecords(data.rows.length);
+}
+
+function refreshRecords(l){
+    $('#ag-index').html($('#current-page').text());
+    $('#ag-number-records-shown').html($("#pageSize").val());
+    $('#ag-max-records').html(l);
 }
 
 function autoSizeAll(skipHeader) {
@@ -147,6 +173,30 @@ function autoSizeAll(skipHeader) {
     gridOptions.columnApi.autoSizeColumns(allColumnIds, skipHeader);
 }
 
+$('#btn-no').on('click', function(){
+    $('#form-delete').hide();
+});
+
+$('#btn-yes').on('click', function(){
+    $.ajax({
+        url: "/api/students/delete",
+        data: {
+            _token: token,
+            id: $('#stud_id').val()
+        },
+        type: 'DELETE',
+        dataType: 'json',
+        success: (response) => {
+            if(response.is_success){
+                alert(response.message);
+
+                window.location.href = '/students';
+            }else{
+                alert(response.message);
+            }
+        }
+    });
+});
 // SEARCH HERE
 $("#search-filter").on("keyup", function() {
     search($(this).val());
