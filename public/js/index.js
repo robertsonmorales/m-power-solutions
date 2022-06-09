@@ -135,6 +135,16 @@ function initAgGrid(data, showControls){
             }
         }
 
+        if (data.column[i].field == "contact") {
+            data.column[i].cellRenderer = function display(params) {
+
+                return '<div class="d-flex flex-column align-items-start">\
+                    <span style="position: relative; top: 13px;">'+params.data.email+'</span>\
+                    <span style="position: relative; bottom: 13px;">'+params.data.contact+'</span>\
+                </div>';
+            }
+        }
+
         if (data.column[i].field == "status") {
             data.column[i].cellRenderer = function display(params) {
                 var status = params.data.status;
