@@ -28,8 +28,8 @@ var gridOptions = {
     api: "",
     columnApi: "",
     onGridReady: function () {
-        autoSizeAll();
-        // gridOptions.api.sizeColumnsToFit();
+        // autoSizeAll();
+        gridOptions.api.sizeColumnsToFit();
         gridOptions.columnApi.moveColumn('controls', 0);
     }
 };
