@@ -1,5 +1,5 @@
 /node_modules
-/bootstrap/cache/
+# /bootstrap/cache/
 
 #public
 /public/storage
