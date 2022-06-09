@@ -20,7 +20,7 @@ class DashboardController extends Controller
         $name = ['Dashboard'];
         $mode = ['/dashboard'];
 
-        $this->audit_trail_logs();
+        // $this->audit_trail_logs();
         
         return view('pages.dashboard.index', [
             'breadcrumbs' => $this->breadcrumbs($name, $mode),

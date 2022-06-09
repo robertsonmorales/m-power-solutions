@@ -15,9 +15,8 @@ class StudentSeeder extends Seeder
      */
     public function run()
     {
-        Student::factory()
-            ->count(50)
-            ->create();
+        Student::factory(50)->create();            
+        
 
         // Students::create([
         //     "full_name" => $this->faker->name(),
