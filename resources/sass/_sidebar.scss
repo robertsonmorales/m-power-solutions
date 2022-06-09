@@ -2,20 +2,22 @@
     flex-direction: column;
     position: sticky;
     overflow-y: auto;
-    width: 77px;
+    width: 80px;
     height: 100vh;
     background-color: $sidebar-bg;
     font-family: $font-family-1;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    padding: 30px auto;
 
     .branding-logo{
         @include flexbox(center, center);
+        margin-bottom: 35px;
         
         img{
-            width: 50px;
-            height: 52px;
+            width: 36.96px;
+            height: 22.65px;
             object-fit: cover;
         }
     
@@ -25,36 +27,33 @@
             top: 10px;
         }
     }
-    
-    .chevron-size-md{
-        transition: all .4s ease;
-    
-        .feather{
-            width: 14px;
-            height: 14px;
-        }
-    }
-    
-    .circle-size-sm{   
-        .feather{
-            width: 12px;
-            height: 12px;
-        }
-    }
-    
-    .chevron-down{
-        transform: rotate(90deg) !important;
-    }
 
     .list-group-item-action{
-        height: 56px;
+        height: 40px;
         display: flex;
         align-items: center;
         justify-content: center;
-        margin-bottom: 16px;
+        margin-bottom: 27px;
+        border-radius: 0;
+        transition: all .3s ease;
+
+        &:hover{
+            @extend .active-tab;
+        }
     }
 
-    .user-settings{
+    .active-tab{
+        border-left: 4px solid $primary !important;
+        // height: 40px;
 
+        svg{
+            background-color: $d-primary;
+            box-shadow: 0 0 0 8px $d-primary;
+            border-radius: 2px;
+            
+            path{
+                stroke: $primary;
+            }
+        }
     }
 }

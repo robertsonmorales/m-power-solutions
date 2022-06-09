@@ -84,8 +84,17 @@ h3{
     font-size: 16px;
 }
 
+.font-20{
+    font-size: 20px;
+}
+
 .border-radius{
     border-radius: $card-radius;
+}
+
+.btn-no{
+    background: $no;
+    color: $white;
 }
 
 // /* width */

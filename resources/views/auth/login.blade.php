@@ -98,10 +98,10 @@
                         <div class="col">
                             <button type="button" 
                                 id="btn-login" 
-                                class="btn btn-success font-weight-500 w-100 border">{{ __('Log in') }}</button>
+                                class="btn btn-success font-weight-500 w-100 border text-white">{{ __('Log in') }}</button>
 
                             <div class="text-center mt-3">
-                                <p class="text-light">Don't have an account yet? register <a href="{{ route('register') }}" class="click-here">here</a></p>
+                                <p class="text-light">Don't have an account yet? register <a href="#register" class="click-here">here</a></p>
                             </div>
                         </div>
                     </div>
@@ -119,10 +119,6 @@
 @section('scripts')
 <script type="text/javascript">
 $(document).ready(function() {
-    $('.show-password-btn').on('click', function(){
-        $('#password').attr('type', 'text');
-    });
-
     function validateFields(){
         $('.invalid-feedback').html('');
 

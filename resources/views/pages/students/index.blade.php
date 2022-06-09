@@ -150,6 +150,36 @@
         </div>
     </div>
 </form>
+
+<form class="modal" 
+    id="form-delete">
+    
+    @csrf
+
+    <div class="modal-dialog" role="document">
+        <div class="modal-content px-4 py-3 w-100">
+            <div class="modal-header">      
+                <div class="d-flex flex-column w-100 text-center">
+                    <h3 class="font-20 font-weight-600">Are you sure you want to delete this record?</h3>
+
+                    <p>Once done, it cannot be recover.</p>
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <input type="hidden" id="stud_id">
+                
+                <button type="button" 
+                    class="btn btn-light btn-no px-4" 
+                    id="btn-no">No</button>
+
+                <button type="button" 
+                    class="btn btn-danger text-white px-4" 
+                    id="btn-yes">Yes</button>
+            </div>
+        </div>
+    </div>
+</form>
 <!-- Ends here -->
 
 <br>
@@ -175,7 +205,6 @@ $.ajax({
 
         var content = "";
         for (course of response.courses) {
-            console.log(course);
             content += '<option value="'+course.id+'">'+course.name+'</option>'; 
         }
 
@@ -184,6 +213,9 @@ $.ajax({
 });
 
 $('.btn-add').on('click', function(){
+    $('#btn-submit').addClass('btn-success')
+        .removeClass('btn-primary')
+        .text('Submit');
     $('#form-submit').attr('style', 'display: flex;');
 });
 
