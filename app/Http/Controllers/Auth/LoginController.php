@@ -61,18 +61,18 @@ class LoginController extends Controller
      */
     protected function authenticated(Request $request, $user)
     {
-        $params = array(
-            'user_id' => $user->id,
-            'device_family' => @Browser::deviceFamily(),
-            'device_model' => @Browser::deviceModel(),
-            'plaform_family' => @Browser::platformFamily(),
-            'plaform_name' => @Browser::platformName(),
-            'browser' => @Browser::browserFamily(),
-            'ip_address' => $this->ipAddress(),
-            'mac_address' => (strlen(exec('getmac')) > 17) ? "" : exec('getmac')
-        );
+        // $params = array(
+        //     'user_id' => $user->id,
+        //     'device_family' => @Browser::deviceFamily(),
+        //     'device_model' => @Browser::deviceModel(),
+        //     'plaform_family' => @Browser::platformFamily(),
+        //     'plaform_name' => @Browser::platformName(),
+        //     'browser' => @Browser::browserFamily(),
+        //     'ip_address' => $this->ipAddress(),
+        //     'mac_address' => (strlen(exec('getmac')) > 17) ? "" : exec('getmac')
+        // );
 
-        UserBrowserSession::create($params);
+        // UserBrowserSession::create($params);
     }
 
     /**
