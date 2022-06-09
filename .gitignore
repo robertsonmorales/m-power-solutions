@@ -1,23 +1,15 @@
 /node_modules
-# /bootstrap/cache/
-
-#public
-/public/storage
 /public/hot
-/public/uploads
-
+/public/storage
+/storage/*.key
 /vendor
 .env
 .env.backup
 .phpunit.result.cache
+docker-compose.override.yml
 Homestead.json
 Homestead.yaml
 npm-debug.log
 yarn-error.log
-
-#storage
-# /storage/*.key
-/storage/logs/
-/storage/framework/views/
-/storage/framework/cache/
-/storage/framework/sessions/*
+/.idea
+/.vscode
