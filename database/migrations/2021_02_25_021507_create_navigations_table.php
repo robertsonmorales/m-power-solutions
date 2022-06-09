@@ -19,7 +19,7 @@ class CreateNavigationsTable extends Migration
             $table->string('nav_name')->nullable();
             $table->string('nav_route')->nullable();
             $table->string('nav_controller')->nullable();
-            $table->string('nav_icon')->nullable();
+            $table->text('nav_icon')->nullable();
             $table->integer('nav_order')->nullable();
             $table->integer('nav_suborder')->nullable();
             $table->integer('nav_childs_parent_id')->nullable();
