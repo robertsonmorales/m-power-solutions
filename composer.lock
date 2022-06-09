@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "431f5f66f4af41db5f3fb2d8772da4ca",
+    "content-hash": "545250807773e92dbcb34a18a5d54dd2",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -1218,6 +1218,34 @@
                 "source": "https://github.com/hisorange/browser-detect/tree/4.5.0"
             },
             "time": "2022-04-14T22:20:46+00:00"
+        },
+        {
+            "name": "infotechnohelp/test-post-install-cmd",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "git@gitlab.com:infotechnohelp/test-post-install-cmd.git",
+                "reference": "6ae39033e67871adb32d14e528fcb958446830d8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://gitlab.com/api/v4/projects/infotechnohelp%2Ftest-post-install-cmd/repository/archive.zip?sha=6ae39033e67871adb32d14e528fcb958446830d8",
+                "reference": "6ae39033e67871adb32d14e528fcb958446830d8",
+                "shasum": ""
+            },
+            "default-branch": true,
+            "bin": [
+                "bin/renderscript"
+            ],
+            "type": "library",
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "Philipp Nikolajev",
+                    "email": "philipp@nikolajev.ee"
+                }
+            ],
+            "time": "2021-01-05T20:18:58+00:00"
         },
         {
             "name": "jaybizzle/crawler-detect",
@@ -8794,7 +8822,9 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {
+        "infotechnohelp/test-post-install-cmd": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
