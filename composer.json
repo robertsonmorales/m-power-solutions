@@ -61,9 +61,6 @@
         ],
         "post-create-project-cmd": [
             "@php artisangi key:generate --ansi"
-        ],
-        "generate-env": [
-            "composer run-script post-create-project-cmd && post-root-package-install"
         ]
     }
 }
